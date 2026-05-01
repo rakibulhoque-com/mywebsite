@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python -c \"import re,os; data=open\\(r'C:\\\\Personal\\\\mywebsite\\\\RakibulHoque_CV.pdf','rb'\\).read\\(\\); print\\('Pages:',[int\\(c\\) for c in re.findall\\(rb'/Count \\(\\\\d+\\)',data\\)]\\); print\\('Size:',round\\(os.path.getsize\\(r'C:\\\\Personal\\\\mywebsite\\\\RakibulHoque_CV.pdf'\\)/1024,1\\),'KB'\\)\")"
+    ]
+  }
+}
