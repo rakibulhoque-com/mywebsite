@@ -7,949 +7,900 @@
     <meta name="description" content="Md. Rakibul Hoque — Senior Data Engineer at G-Star Raw. Built a production-grade cloud-native data and AI platform on GCP: 1,716 SQL models, a full-stack LLM-powered analytics assistant, and a multi-environment Kubernetes-backed platform serving 300+ users.">
     <meta name="keywords" content="Rakibul Hoque, Data Engineer, AI Platform, GCP, BigQuery, Dataform, LangChain, Kubernetes, Terraform, Analytics Engineering, ML-Ops, G-Star Raw, Pathao">
     <meta name="author" content="Md. Rakibul Hoque">
-
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://profile.rakibulhoque.com/">
     <meta property="og:title" content="Md. Rakibul Hoque — Senior Data Engineer & AI Platform Builder">
     <meta property="og:description" content="Senior Data Engineer at G-Star Raw. 1,716 SQL models, full-stack AI analytics assistant, production GKE cluster. 6+ years in cloud-native data engineering.">
-
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://profile.rakibulhoque.com/">
-    <meta property="twitter:title" content="Md. Rakibul Hoque — Senior Data Engineer & AI Platform Builder">
-    <meta property="twitter:description" content="Senior Data Engineer at G-Star Raw. 1,716 SQL models, full-stack AI analytics assistant, production GKE cluster.">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✏️</text></svg>">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Styles -->
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
+<!-- Inline SVG filter definitions for sketch/rough effects -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden;" aria-hidden="true">
+    <defs>
+        <filter id="rough">
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" seed="2" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="rough-subtle">
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="5" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+    </defs>
+</svg>
+
+<!-- Loading Screen -->
+<div class="loading" id="loading">
+    <div class="loading-inner">
+        <svg class="loading-pencil" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 50 L45 15 L50 10 L55 15 L20 50 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M10 50 L8 56 L14 54 Z" fill="currentColor"/>
+            <path d="M45 15 L50 10 L55 15 L50 20 Z" fill="currentColor" opacity="0.6"/>
+        </svg>
+        <span>Loading...</span>
     </div>
+</div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Rakibul Hoque</a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#research" class="nav-link">Research</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
-            </button>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Rakibul Hoque</a>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#research" class="nav-link">Research</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <!-- Sketch pad ruled lines overlay -->
+    <div class="hero-ruled-lines" aria-hidden="true"></div>
+    <!-- Corner sketch decorations -->
+    <svg class="corner-sketch corner-sketch--tl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M10,10 L10,60" stroke-width="1" stroke-linecap="round"/>
+        <path d="M10,10 L60,10" stroke-width="1" stroke-linecap="round"/>
+        <path d="M18,18 L18,52" stroke-width="0.5" stroke-linecap="round" opacity="0.5"/>
+        <path d="M18,18 L52,18" stroke-width="0.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="10" cy="10" r="3" fill="currentColor" opacity="0.4"/>
+        <path d="M30,40 Q40,35 50,45" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.35"/>
+        <path d="M25,55 L35,50 L40,58" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.25"/>
+    </svg>
+    <svg class="corner-sketch corner-sketch--br" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M110,110 L110,60" stroke-width="1" stroke-linecap="round"/>
+        <path d="M110,110 L60,110" stroke-width="1" stroke-linecap="round"/>
+        <path d="M102,102 L102,68" stroke-width="0.5" stroke-linecap="round" opacity="0.5"/>
+        <path d="M102,102 L68,102" stroke-width="0.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="110" cy="110" r="3" fill="currentColor" opacity="0.4"/>
+        <path d="M70,80 Q80,75 90,85 T80,95" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.35"/>
+    </svg>
+
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Available for senior roles · September 2026
+            </div>
+            <h1>
+                <span class="hero-greeting">Hi, I'm</span>
+                <span class="hero-name" id="hero-name"></span>
+            </h1>
+            <p class="subtitle">Senior Data Engineer &nbsp;·&nbsp; Analytics Engineering &nbsp;·&nbsp; AI Platform</p>
+            <p class="description">
+                Forward-deployed engineer who built a production-grade, cloud-native data &amp; AI platform at G-Star Raw —
+                from bare-metal GCP infrastructure through to a custom LLM-powered analytics assistant
+                serving 300+ business users globally. 6+ years delivering scalable data systems, ML pipelines, and applied AI products.
+            </p>
+            <div class="cta-buttons">
+                <a href="#experience" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i> View Experience
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
         </div>
-    </nav>
+        <div class="hero-image">
+            <div class="hero-photo-frame">
+                <img src="assets/RakibulPhoto.jpeg" alt="Md. Rakibul Hoque">
+                <div class="photo-corner photo-corner--tl"></div>
+                <div class="photo-corner photo-corner--tr"></div>
+                <div class="photo-corner photo-corner--bl"></div>
+                <div class="photo-corner photo-corner--br"></div>
+            </div>
+            <p class="photo-caption">— Dhaka, Bangladesh</p>
+        </div>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-circle pulse-dot"></i>
-                    Available for senior roles from September 2026
-                </div>
-                <h1>Hi, I'm Md. Rakibul Hoque</h1>
-                <p class="subtitle">Senior Data Engineer · Analytics Engineering · AI Platform</p>
-                <p class="description">
-                    Forward-deployed engineer who built a production-grade, cloud-native data &amp; AI platform at G-Star Raw —
-                    from bare-metal GCP infrastructure through to a custom LLM-powered analytics assistant serving 300+ business users globally.
-                    6+ years delivering scalable data systems, ML pipelines, and applied AI products.
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="stats-plank-texture" aria-hidden="true"></div>
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">1,716</span>
+                <span class="stat-label">SQL Models</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">85</span>
+                <span class="stat-label">Datasets</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">300+</span>
+                <span class="stat-label">Users Served</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">7</span>
+                <span class="stat-label">SaaS Integrations</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">6+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">40+</span>
+                <span class="stat-label">AI Security Guards</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I'm a Senior Data Engineer and AI Platform builder with over <span id="years-experience"></span> years of professional experience.
+                    Currently embedded as a forward-deployed engineer at <strong>G-Star Raw</strong>, where I own the full lifecycle of a production-grade,
+                    cloud-native data and AI platform on Google Cloud Platform.
                 </p>
-                <div class="cta-buttons">
-                    <a href="#experience" class="btn btn-primary">
-                        <i class="fas fa-briefcase"></i>
-                        View Experience
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
-                    </a>
-                </div>
+                <p>
+                    My work at G-Star spans platform engineering, data warehouse architecture, analytics engineering, sustainability reporting,
+                    and applied AI product development — across development, UAT, and production environments. The platform I built serves 300+
+                    business users globally through an AI-powered natural-language analytics assistant I designed and delivered end-to-end.
+                </p>
+                <p>
+                    Before G-Star, I co-architected data engineering and ML platforms at <strong>Pathao Limited</strong> (Bangladesh's leading super-app),
+                    consulted on data infrastructure at <strong>10MinuteSchool</strong> and <strong>Buildnow Inc.</strong>, and published research on deep learning
+                    for digital forensics at <strong>BUET</strong>.
+                </p>
+                <p>
+                    I'm passionate about building systems that work at production scale — clean architecture, multi-layer security, full audit traceability,
+                    and real business impact.
+                </p>
             </div>
-            <div class="hero-image">
-                <div class="hero-image-placeholder">
-                    <img src="assets/RakibulPhoto.jpeg" alt="Md. Rakibul Hoque" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">1,716</span>
-                    <span class="stat-label">SQL Models Delivered</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">85</span>
-                    <span class="stat-label">BigQuery Datasets</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">300+</span>
-                    <span class="stat-label">Business Users Served</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">7</span>
-                    <span class="stat-label">SaaS Integrations Built</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">6+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">40+</span>
-                    <span class="stat-label">AI Security Guards</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a Senior Data Engineer and AI Platform builder with over <span id="years-experience"></span> years of professional experience.
-                        Currently embedded as a forward-deployed engineer at <strong>G-Star Raw</strong>, where I own the full lifecycle of a production-grade,
-                        cloud-native data and AI platform on Google Cloud Platform.
-                    </p>
-                    <p>
-                        My work at G-Star spans platform engineering, data warehouse architecture, analytics engineering, sustainability reporting,
-                        and applied AI product development — across development, UAT, and production environments. The platform I built serves 300+
-                        business users globally through an AI-powered natural-language analytics assistant I designed and delivered end-to-end.
-                    </p>
-                    <p>
-                        Before G-Star, I co-architected data engineering and ML platforms at <strong>Pathao Limited</strong> (Bangladesh's leading super-app),
-                        consulted on data infrastructure at <strong>10MinuteSchool</strong> and <strong>Buildnow Inc.</strong>, and published research on deep learning
-                        for digital forensics at <strong>BUET</strong>, where I earned my degree in Electrical and Electronic Engineering.
-                    </p>
-                    <p>
-                        I'm passionate about building systems that work at production scale — clean architecture, multi-layer security, full audit traceability,
-                        and real business impact.
-                    </p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">GCP</span>
-                            <span class="skill-tag">Terraform</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">Helm</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">CI/CD</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-database"></i> Data Engineering</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">BigQuery</span>
-                            <span class="skill-tag">Dataform</span>
-                            <span class="skill-tag">Airflow</span>
-                            <span class="skill-tag">Airbyte</span>
-                            <span class="skill-tag">dbt</span>
-                            <span class="skill-tag">Pub/Sub</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-robot"></i> AI & ML</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">LangChain</span>
-                            <span class="skill-tag">Google Gemini</span>
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">MLflow</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">TensorFlow</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-shield-alt"></i> Security & Identity</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Keycloak</span>
-                            <span class="skill-tag">OAuth2</span>
-                            <span class="skill-tag">OIDC</span>
-                            <span class="skill-tag">IAP</span>
-                            <span class="skill-tag">RLS</span>
-                            <span class="skill-tag">Workload Identity</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-
-                <!-- G-Star Raw -->
-                <div class="timeline-item">
-                    <div class="timeline-dot active-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-company-info">
-                                <h3 class="timeline-company">G-Star Raw</h3>
-                                <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Amsterdam, Netherlands (Forward-Deployed)</span>
-                            </div>
-                            <span class="timeline-period current-period">Mar 2023 – Present</span>
-                        </div>
-                        <div class="timeline-roles">
-                            <div class="role-entry">
-                                <span class="role-title current-role">Senior Data Engineer</span>
-                                <span class="role-dates">Jan 2024 – Present</span>
-                            </div>
-                            <div class="role-entry">
-                                <span class="role-title">Data Engineer</span>
-                                <span class="role-dates">Mar 2023 – Dec 2023</span>
-                            </div>
-                        </div>
-                        <p class="timeline-description">
-                            Embedded as a forward-deployed engineer, I owned the full lifecycle of a production-grade, cloud-native data and AI platform on GCP —
-                            from bare-metal infrastructure provisioning through to end-user BI dashboards and a custom AI-powered analytics assistant.
-                            Serving 300+ business users across development, UAT, and production environments globally.
-                        </p>
-                        <ul class="timeline-achievements">
-                            <li>Architected a <strong>multi-layer BigQuery data warehouse</strong> using Dataform — <strong>1,716 SQL models across 85 datasets</strong> spanning 10 business domains (Sales, Finance, Inventory, Product, Marketing, Logistics, E-commerce, Sustainability, and more)</li>
-                            <li>Designed and delivered a <strong>production AI-powered analytics assistant</strong> (FastAPI + LangChain + Google Gemini + Svelte) enabling 300+ non-technical users to query the warehouse in plain English — with hexagonal architecture, multi-agent domain routing, and 40+ prompt injection guards</li>
-                            <li>Provisioned a <strong>multi-project GCP data lake</strong> across 4 isolated environments using modular Terraform, managing 100+ cloud resources; implemented GitOps-driven Terraform workflows via Atlantis</li>
-                            <li>Administered the <strong>SAP data replication stack</strong> (SAP ECC, Data Intelligence, Datasphere, SLT) for near-real-time ERP streaming into BigQuery — 11,500+ staging tables and 4,900+ integration tables</li>
-                            <li>Delivered <strong>54 outbound data feed models</strong> across 7 external SaaS platforms: Hakio, Nextail, Crunch, Faume, Alviss, ProductHero, and Hybris</li>
-                            <li>Engineered a <strong>centralised identity platform</strong> with Keycloak (OIDC/OAuth2) + OAuth2-Proxy, Row-Level Security in Superset, and GCP Workload Identity — all managed via Terraform</li>
-                            <li>Built a <strong>sustainability compliance reporting domain</strong> integrating ZDHC gateway data, Clearstream wastewater testing, and Incheck chemical inventories for supply chain transparency</li>
-                            <li>Operated a <strong>production GKE cluster</strong> with autoscaling node pools; deployed Airbyte, Superset, Keycloak, Traefik, and Consul via Terraform-managed Helm releases</li>
-                        </ul>
-                        <div class="timeline-tech">
-                            <span class="tech-tag">GCP</span>
-                            <span class="tech-tag">Terraform</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">BigQuery</span>
-                            <span class="tech-tag">Dataform</span>
-                            <span class="tech-tag">Airflow</span>
-                            <span class="tech-tag">Airbyte</span>
-                            <span class="tech-tag">Superset</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">LangChain</span>
-                            <span class="tech-tag">Google Gemini</span>
-                            <span class="tech-tag">Svelte</span>
-                            <span class="tech-tag">Keycloak</span>
-                            <span class="tech-tag">Traefik</span>
-                            <span class="tech-tag">SAP ECC</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Buildnow Inc. -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-company-info">
-                                <h3 class="timeline-company">Buildnow Inc.</h3>
-                                <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Remote</span>
-                            </div>
-                            <span class="timeline-period">Nov 2023 – Jan 2024</span>
-                        </div>
-                        <div class="timeline-roles">
-                            <div class="role-entry">
-                                <span class="role-title">Data Engineering Consultant (Contract)</span>
-                            </div>
-                        </div>
-                        <p class="timeline-description">
-                            First architect of the entire data and ML infrastructure from scratch on GCP —
-                            designing the data warehouse, orchestration layer, ELT pipelines, and ML-Ops foundation.
-                        </p>
-                        <div class="timeline-tech">
-                            <span class="tech-tag">GCP</span>
-                            <span class="tech-tag">Terraform</span>
-                            <span class="tech-tag">MLflow</span>
-                            <span class="tech-tag">Airbyte</span>
-                            <span class="tech-tag">DBT</span>
-                            <span class="tech-tag">Airflow</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pathao Limited -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-company-info">
-                                <h3 class="timeline-company">Pathao Limited</h3>
-                                <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
-                            </div>
-                            <span class="timeline-period">Dec 2019 – Nov 2023</span>
-                        </div>
-                        <div class="timeline-roles">
-                            <div class="role-entry">
-                                <span class="role-title">Data Engineer II (Contract)</span>
-                                <span class="role-dates">Apr 2023 – Nov 2023</span>
-                            </div>
-                            <div class="role-entry">
-                                <span class="role-title">Data Engineer II</span>
-                                <span class="role-dates">Jan 2020 – Mar 2023</span>
-                            </div>
-                            <div class="role-entry">
-                                <span class="role-title">Data Engineer I</span>
-                                <span class="role-dates">Dec 2019 – Jan 2020</span>
-                            </div>
-                        </div>
-                        <p class="timeline-description">
-                            Grew from Data Engineer I to II at Bangladesh's leading super-app (ride-sharing, food delivery, fintech),
-                            co-architecting the data engineering platform and ML infrastructure from the ground up.
-                        </p>
-                        <ul class="timeline-achievements">
-                            <li>Co-architected the <strong>ELT-based data warehouse platform</strong> enabling seamless collaboration between Data Engineers, Scientists, and Analysts</li>
-                            <li>Co-architected the <strong>ML platform</strong> for production ML lifecycle management — including model deployment to Kubernetes via MLServer</li>
-                            <li>Built a <strong>fraud detection knowledge-base</strong> with batch and real-time pipelines for suspicious activity detection and prevention</li>
-                            <li>Engineered a <strong>GPS distance calculator microservice</strong> using Apache Beam with noise cancellation and confidence scoring</li>
-                            <li>Built a <strong>personalised food recommendation engine</strong> using item-item similarity, user-user similarity, and doc2vec NLP</li>
-                            <li>Developed an <strong>ETA correction system</strong> incorporating peak/off-peak and weekday/weekend traffic patterns</li>
-                        </ul>
-                        <div class="timeline-tech">
-                            <span class="tech-tag">GCP</span>
-                            <span class="tech-tag">BigQuery</span>
-                            <span class="tech-tag">DBT</span>
-                            <span class="tech-tag">Airflow</span>
-                            <span class="tech-tag">Kedro</span>
-                            <span class="tech-tag">MLflow</span>
-                            <span class="tech-tag">MLServer</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">Apache Beam</span>
-                            <span class="tech-tag">Terraform</span>
-                            <span class="tech-tag">InfluxDB</span>
-                            <span class="tech-tag">Grafana</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 10MinuteSchool -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-company-info">
-                                <h3 class="timeline-company">10MinuteSchool</h3>
-                                <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
-                            </div>
-                            <span class="timeline-period">Jan 2022 – Oct 2022</span>
-                        </div>
-                        <div class="timeline-roles">
-                            <div class="role-entry">
-                                <span class="role-title">Data Engineering Consultant</span>
-                            </div>
-                        </div>
-                        <p class="timeline-description">
-                            Established the base ELT architecture for Bangladesh's leading EdTech platform,
-                            building a working data warehouse for the BI and analytics team's reporting dashboards.
-                        </p>
-                        <div class="timeline-tech">
-                            <span class="tech-tag">Airbyte</span>
-                            <span class="tech-tag">BigQuery</span>
-                            <span class="tech-tag">GCP</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+                    <h3><i class="fas fa-cloud"></i> Cloud &amp; Infrastructure</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Kubernetes (GKE)</span>
-                        <span class="skill-tag">Helm</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Atlantis</span>
-                        <span class="skill-tag">Traefik</span>
-                        <span class="skill-tag">Consul</span>
-                        <span class="skill-tag">Cloud Build</span>
-                        <span class="skill-tag">Cloud Composer</span>
+                        <span class="skill-tag">GCP</span><span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Kubernetes</span><span class="skill-tag">Helm</span>
+                        <span class="skill-tag">Docker</span><span class="skill-tag">CI/CD</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-database"></i> Data Engineering</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">BigQuery</span>
-                        <span class="skill-tag">Dataform</span>
-                        <span class="skill-tag">Apache Airflow</span>
-                        <span class="skill-tag">Airbyte</span>
-                        <span class="skill-tag">dbt</span>
-                        <span class="skill-tag">Apache Beam</span>
-                        <span class="skill-tag">Pub/Sub</span>
-                        <span class="skill-tag">SAP ECC</span>
-                        <span class="skill-tag">SAP Data Intelligence</span>
-                        <span class="skill-tag">SAP SLT</span>
-                        <span class="skill-tag">EDI</span>
-                        <span class="skill-tag">Salesforce CRM</span>
+                        <span class="skill-tag">BigQuery</span><span class="skill-tag">Dataform</span>
+                        <span class="skill-tag">Airflow</span><span class="skill-tag">Airbyte</span>
+                        <span class="skill-tag">dbt</span><span class="skill-tag">Pub/Sub</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-chart-bar"></i> Analytics Engineering</h3>
+                    <h3><i class="fas fa-robot"></i> AI &amp; ML</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Data Modeling</span>
-                        <span class="skill-tag">Dimensional Modeling</span>
-                        <span class="skill-tag">Incremental Loading</span>
-                        <span class="skill-tag">Surrogate Keys</span>
-                        <span class="skill-tag">Partitioning & Clustering</span>
-                        <span class="skill-tag">Apache Superset</span>
-                        <span class="skill-tag">InfluxDB</span>
-                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">LangChain</span><span class="skill-tag">Gemini</span>
+                        <span class="skill-tag">FastAPI</span><span class="skill-tag">MLflow</span>
+                        <span class="skill-tag">Python</span><span class="skill-tag">TensorFlow</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-robot"></i> AI & Applied ML</h3>
+                    <h3><i class="fas fa-shield-alt"></i> Security &amp; Identity</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">Google Gemini</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                        <span class="skill-tag">Hexagonal Architecture</span>
-                        <span class="skill-tag">Kedro</span>
-                        <span class="skill-tag">MLflow</span>
-                        <span class="skill-tag">MLServer</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">Python</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-shield-alt"></i> Security & Identity</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Keycloak</span>
-                        <span class="skill-tag">OAuth2 / OIDC</span>
-                        <span class="skill-tag">OAuth2-Proxy</span>
-                        <span class="skill-tag">GCP IAP</span>
-                        <span class="skill-tag">Workload Identity</span>
-                        <span class="skill-tag">Row-Level Security</span>
-                        <span class="skill-tag">Prompt Injection Defense</span>
-                        <span class="skill-tag">IAM</span>
-                        <span class="skill-tag">VPN (IPSec)</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Languages & Frameworks</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">Svelte</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">SQLAlchemy</span>
-                        <span class="skill-tag">Pydantic</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Keycloak</span><span class="skill-tag">OAuth2</span>
+                        <span class="skill-tag">OIDC</span><span class="skill-tag">IAP</span>
+                        <span class="skill-tag">RLS</span><span class="skill-tag">Workload Identity</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
+<!-- Sketch Divider -->
+<div class="sketch-divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,12 C50,8 100,16 150,12 C200,8 250,15 300,11 C350,7 400,14 450,12 C500,10 550,15 600,11 C650,7 700,14 750,12 C800,10 850,16 900,11 C950,6 1000,15 1050,12 C1100,9 1150,14 1200,12" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+</div>
 
-                <!-- AI Analyst Tool -->
-                <div class="project-card project-card-featured">
-                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <i class="fas fa-robot"></i>
-                        <span class="project-badge">Flagship</span>
+<!-- Experience Section -->
+<section id="experience" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+
+            <!-- G-Star Raw -->
+            <div class="timeline-item">
+                <div class="timeline-dot active-dot">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="10" cy="10" r="3" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div class="timeline-company-info">
+                            <h3 class="timeline-company">G-Star Raw</h3>
+                            <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Amsterdam, Netherlands (Forward-Deployed)</span>
+                        </div>
+                        <span class="timeline-period current-period">Mar 2023 – Present</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">G-Star AI Analytics Assistant</h3>
-                        <p class="project-description">
-                            Production full-stack AI-powered tool enabling 300+ non-technical business users to query a 1,716-model BigQuery data warehouse
-                            in plain English — without writing SQL. Built end-to-end with clean architecture, multi-layer security, and full audit traceability.
-                        </p>
-                        <ul class="project-highlights">
-                            <li>Hexagonal (Ports &amp; Adapters) architecture with dependency injection</li>
-                            <li>LangChain SQL agent backed by Google Gemini + SQLAlchemy-BigQuery</li>
-                            <li>Multi-agent domain routing with Keycloak group-based access control</li>
-                            <li>40+ prompt injection guards (regex patterns, scope constraints, SQL runtime validation)</li>
-                            <li>7-table PostgreSQL audit schema: sessions, messages, FAQ, SQL audit, recurring snapshots</li>
-                            <li>Real-time Svelte frontend with live thinking indicators and sanitised Markdown rendering</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">LangChain</span>
-                            <span class="tech-tag">Google Gemini</span>
-                            <span class="tech-tag">Svelte</span>
-                            <span class="tech-tag">BigQuery</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Keycloak</span>
-                            <span class="tech-tag">Python</span>
+                    <div class="timeline-roles">
+                        <div class="role-entry">
+                            <span class="role-title current-role">Senior Data Engineer</span>
+                            <span class="role-dates">Jan 2024 – Present</span>
                         </div>
-                        <div class="project-links">
-                            <span class="project-link-label"><i class="fas fa-lock"></i> Internal Production Tool · G-Star Raw</span>
+                        <div class="role-entry">
+                            <span class="role-title">Data Engineer</span>
+                            <span class="role-dates">Mar 2023 – Dec 2023</span>
                         </div>
+                    </div>
+                    <p class="timeline-description">
+                        Embedded as a forward-deployed engineer, I owned the full lifecycle of a production-grade, cloud-native data and AI platform on GCP —
+                        from infrastructure provisioning through to end-user BI dashboards and a custom AI-powered analytics assistant serving 300+ business users globally.
+                    </p>
+                    <ul class="timeline-achievements">
+                        <li>Architected a <strong>multi-layer BigQuery data warehouse</strong> using Dataform — <strong>1,716 SQL models across 85 datasets</strong> spanning 10 business domains</li>
+                        <li>Built a production <strong>AI-powered analytics assistant</strong> (FastAPI + LangChain + Google Gemini + Svelte) enabling 300+ non-technical users to query the warehouse in plain English, with multi-layer prompt injection defence</li>
+                        <li>Designed and provisioned a <strong>multi-project GCP data lake</strong> spanning 4 isolated environments using modular Terraform, managing 100+ cloud resources</li>
+                        <li>Administered the <strong>SAP data replication stack</strong> (SAP ECC, Data Intelligence, Datasphere, SLT) — 11,500+ staging tables and 4,900+ integration tables in near-real-time</li>
+                        <li>Delivered <strong>54 outbound data feed models</strong> across 7 external SaaS platforms: Hakio, Nextail, Crunch, Faume, Alviss, ProductHero, and Hybris</li>
+                        <li>Engineered a <strong>centralised identity platform</strong> with Keycloak OIDC + OAuth2-Proxy, Row-Level Security in Superset, GCP Workload Identity — all via Terraform</li>
+                        <li>Built a <strong>sustainability compliance reporting domain</strong> integrating ZDHC, Clearstream, and Incheck data for supply chain transparency</li>
+                        <li>Operated a <strong>production GKE cluster</strong>; deployed Airbyte, Superset, Keycloak, Traefik, and Consul via Terraform-managed Helm releases</li>
+                    </ul>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">GCP</span><span class="tech-tag">Terraform</span><span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">BigQuery</span><span class="tech-tag">Dataform</span><span class="tech-tag">Airflow</span>
+                        <span class="tech-tag">Airbyte</span><span class="tech-tag">FastAPI</span><span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Google Gemini</span><span class="tech-tag">Svelte</span><span class="tech-tag">Keycloak</span>
+                        <span class="tech-tag">Traefik</span><span class="tech-tag">SAP ECC</span><span class="tech-tag">PostgreSQL</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- G-Star Data Lake -->
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <!-- Buildnow -->
+            <div class="timeline-item">
+                <div class="timeline-dot">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div class="timeline-company-info">
+                            <h3 class="timeline-company">Buildnow Inc.</h3>
+                            <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                        </div>
+                        <span class="timeline-period">Nov 2023 – Jan 2024</span>
+                    </div>
+                    <div class="timeline-roles">
+                        <div class="role-entry">
+                            <span class="role-title">Data Engineering Consultant (Contract)</span>
+                        </div>
+                    </div>
+                    <p class="timeline-description">
+                        First architect of the entire data and ML infrastructure from scratch on GCP — designing the data warehouse,
+                        orchestration layer, ELT pipelines, and ML-Ops foundation.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">GCP</span><span class="tech-tag">Terraform</span><span class="tech-tag">MLflow</span>
+                        <span class="tech-tag">Airbyte</span><span class="tech-tag">DBT</span><span class="tech-tag">Airflow</span><span class="tech-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pathao -->
+            <div class="timeline-item">
+                <div class="timeline-dot">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div class="timeline-company-info">
+                            <h3 class="timeline-company">Pathao Limited</h3>
+                            <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
+                        </div>
+                        <span class="timeline-period">Dec 2019 – Nov 2023</span>
+                    </div>
+                    <div class="timeline-roles">
+                        <div class="role-entry">
+                            <span class="role-title">Data Engineer II (Contract)</span>
+                            <span class="role-dates">Apr 2023 – Nov 2023</span>
+                        </div>
+                        <div class="role-entry">
+                            <span class="role-title">Data Engineer II</span>
+                            <span class="role-dates">Jan 2020 – Mar 2023</span>
+                        </div>
+                        <div class="role-entry">
+                            <span class="role-title">Data Engineer I</span>
+                            <span class="role-dates">Dec 2019 – Jan 2020</span>
+                        </div>
+                    </div>
+                    <p class="timeline-description">
+                        Grew from Data Engineer I to II at Bangladesh's leading super-app (ride-sharing, food delivery, fintech),
+                        co-architecting the data engineering platform and ML infrastructure from the ground up.
+                    </p>
+                    <ul class="timeline-achievements">
+                        <li>Co-architected the <strong>ELT-based data warehouse platform</strong> enabling seamless collaboration between Data Engineers, Scientists, and Analysts</li>
+                        <li>Co-architected the <strong>ML platform</strong> for production ML lifecycle management — including model deployment to Kubernetes via MLServer</li>
+                        <li>Built a <strong>fraud detection knowledge-base</strong> with batch and real-time pipelines for suspicious activity detection and prevention</li>
+                        <li>Engineered a <strong>GPS distance calculator microservice</strong> using Apache Beam with noise cancellation and confidence scoring</li>
+                        <li>Built a <strong>personalised food recommendation engine</strong> using item-item similarity, user-user similarity, and doc2vec NLP</li>
+                        <li>Developed an <strong>ETA correction system</strong> incorporating peak/off-peak and weekday/weekend traffic patterns</li>
+                    </ul>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">GCP</span><span class="tech-tag">BigQuery</span><span class="tech-tag">DBT</span>
+                        <span class="tech-tag">Airflow</span><span class="tech-tag">Kedro</span><span class="tech-tag">MLflow</span>
+                        <span class="tech-tag">MLServer</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Apache Beam</span>
+                        <span class="tech-tag">Terraform</span><span class="tech-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10MinuteSchool -->
+            <div class="timeline-item">
+                <div class="timeline-dot">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div class="timeline-company-info">
+                            <h3 class="timeline-company">10MinuteSchool</h3>
+                            <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
+                        </div>
+                        <span class="timeline-period">Jan 2022 – Oct 2022</span>
+                    </div>
+                    <div class="timeline-roles">
+                        <div class="role-entry">
+                            <span class="role-title">Data Engineering Consultant</span>
+                        </div>
+                    </div>
+                    <p class="timeline-description">
+                        Established the base ELT architecture for Bangladesh's leading EdTech platform,
+                        building a working data warehouse for the BI and analytics team's reporting dashboards.
+                    </p>
+                    <div class="timeline-tech">
+                        <span class="tech-tag">Airbyte</span><span class="tech-tag">BigQuery</span><span class="tech-tag">GCP</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Sketch Divider -->
+<div class="sketch-divider sketch-divider--flip" aria-hidden="true">
+    <svg viewBox="0 0 1200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,12 C60,16 120,8 180,13 C240,18 300,7 360,12 C420,17 480,9 540,13 C600,17 660,8 720,12 C780,16 840,7 900,13 C960,19 1020,8 1080,12 C1120,15 1160,9 1200,12" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+</div>
+
+<!-- Skills Section -->
+<section id="skills" class="section">
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid skills-grid--full">
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Cloud &amp; Infrastructure</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">GCP</span><span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">Kubernetes (GKE)</span><span class="skill-tag">Helm</span>
+                    <span class="skill-tag">Docker</span><span class="skill-tag">Atlantis</span>
+                    <span class="skill-tag">Traefik</span><span class="skill-tag">Consul</span>
+                    <span class="skill-tag">Cloud Build</span><span class="skill-tag">Cloud Composer</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Data Engineering</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">BigQuery</span><span class="skill-tag">Dataform</span>
+                    <span class="skill-tag">Apache Airflow</span><span class="skill-tag">Airbyte</span>
+                    <span class="skill-tag">dbt</span><span class="skill-tag">Apache Beam</span>
+                    <span class="skill-tag">Pub/Sub</span><span class="skill-tag">SAP ECC</span>
+                    <span class="skill-tag">SAP Data Intelligence</span><span class="skill-tag">SAP SLT</span>
+                    <span class="skill-tag">EDI</span><span class="skill-tag">Salesforce CRM</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-bar"></i> Analytics Engineering</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">SQL</span><span class="skill-tag">Data Modeling</span>
+                    <span class="skill-tag">Dimensional Modeling</span><span class="skill-tag">Incremental Loading</span>
+                    <span class="skill-tag">Partitioning &amp; Clustering</span><span class="skill-tag">Apache Superset</span>
+                    <span class="skill-tag">InfluxDB</span><span class="skill-tag">Grafana</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-robot"></i> AI &amp; Applied ML</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">LangChain</span><span class="skill-tag">Google Gemini</span>
+                    <span class="skill-tag">FastAPI</span><span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">Hexagonal Architecture</span><span class="skill-tag">Kedro</span>
+                    <span class="skill-tag">MLflow</span><span class="skill-tag">MLServer</span>
+                    <span class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-learn</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-shield-alt"></i> Security &amp; Identity</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Keycloak</span><span class="skill-tag">OAuth2 / OIDC</span>
+                    <span class="skill-tag">OAuth2-Proxy</span><span class="skill-tag">GCP IAP</span>
+                    <span class="skill-tag">Workload Identity</span><span class="skill-tag">Row-Level Security</span>
+                    <span class="skill-tag">Prompt Injection Defense</span><span class="skill-tag">VPN (IPSec)</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Languages &amp; Frameworks</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Svelte</span><span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">PostgreSQL</span><span class="skill-tag">Redis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sketch Divider -->
+<div class="sketch-divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,14 C70,9 140,17 210,13 C280,9 350,16 420,12 C490,8 560,15 630,11 C700,7 770,15 840,12 C910,9 980,16 1050,12 C1100,9 1150,15 1200,13" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+</div>
+
+<!-- Projects Section -->
+<section id="projects" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+
+            <!-- AI Analyst Tool - Featured -->
+            <div class="project-card project-card--featured">
+                <div class="project-header">
+                    <div class="project-icon-wrap">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <span class="project-stamp">Flagship</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">G-Star AI Analytics Assistant</h3>
+                    <p class="project-description">
+                        Production full-stack AI-powered tool enabling 300+ non-technical business users to query a 1,716-model BigQuery
+                        data warehouse in plain English — without writing SQL. Built end-to-end with clean architecture, multi-layer security, and full audit traceability.
+                    </p>
+                    <ul class="project-highlights">
+                        <li>Hexagonal (Ports &amp; Adapters) architecture with dependency injection</li>
+                        <li>LangChain SQL agent backed by Google Gemini + SQLAlchemy-BigQuery</li>
+                        <li>Multi-agent domain routing with Keycloak group-based access control</li>
+                        <li>40+ prompt injection guards — input validation, scope constraints, SQL runtime check</li>
+                        <li>7-table PostgreSQL audit schema: sessions, messages, FAQ, SQL audit, recurring snapshots</li>
+                        <li>Real-time Svelte frontend with live thinking indicators and sanitised Markdown rendering</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">FastAPI</span><span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Google Gemini</span><span class="tech-tag">Svelte</span>
+                        <span class="tech-tag">BigQuery</span><span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Keycloak</span><span class="tech-tag">Python</span>
+                    </div>
+                    <p class="project-note"><i class="fas fa-lock"></i>&nbsp; Internal Production Tool · G-Star Raw</p>
+                </div>
+            </div>
+
+            <!-- G-Star Data Lake -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon-wrap">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">G-Star Data Lake & Warehouse</h3>
-                        <p class="project-description">
-                            End-to-end cloud-native data platform on GCP: 4-environment GCP data lake, production GKE cluster,
-                            and a 1,716-model BigQuery warehouse using Dataform across 10 business domains.
-                        </p>
-                        <ul class="project-highlights">
-                            <li>Multi-project GCP setup (CI/CD hub, dev, UAT, prod) using modular Terraform</li>
-                            <li>Site-to-site IPSec VPN connecting GCP to on-premises corporate network</li>
-                            <li>SAP ECC → BigQuery near-real-time replication via SAP Data Intelligence + SLT</li>
-                            <li>54 outbound data feed models across 7 external SaaS platforms</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-tag">GCP</span>
-                            <span class="tech-tag">Terraform</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">BigQuery</span>
-                            <span class="tech-tag">Dataform</span>
-                            <span class="tech-tag">Airflow</span>
-                            <span class="tech-tag">Airbyte</span>
-                            <span class="tech-tag">SAP</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link-label"><i class="fas fa-lock"></i> Production · G-Star Raw</span>
-                        </div>
-                    </div>
                 </div>
+                <div class="project-content">
+                    <h3 class="project-title">G-Star Data Lake &amp; Warehouse</h3>
+                    <p class="project-description">
+                        End-to-end cloud-native data platform: 4-environment GCP data lake, production GKE cluster,
+                        and a 1,716-model BigQuery warehouse across 10 business domains.
+                    </p>
+                    <ul class="project-highlights">
+                        <li>Multi-project GCP setup using modular Terraform (100+ cloud resources)</li>
+                        <li>Site-to-site IPSec VPN connecting GCP to on-premises corporate network</li>
+                        <li>SAP ECC → BigQuery near-real-time replication via SAP Data Intelligence + SLT</li>
+                        <li>54 outbound models across 7 external SaaS platforms</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">GCP</span><span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Kubernetes</span><span class="tech-tag">BigQuery</span>
+                        <span class="tech-tag">Dataform</span><span class="tech-tag">Airflow</span>
+                        <span class="tech-tag">Airbyte</span><span class="tech-tag">SAP</span>
+                    </div>
+                    <p class="project-note"><i class="fas fa-lock"></i>&nbsp; Production · G-Star Raw</p>
+                </div>
+            </div>
 
-                <!-- Pathao ML Platform -->
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+            <!-- Pathao ML Platform -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon-wrap">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">ML Platform & Data Warehouse</h3>
-                        <p class="project-description">
-                            Co-architected Pathao's ELT-based data warehouse and ML lifecycle platform from the ground up,
-                            enabling seamless collaboration between engineers, scientists, and analysts.
-                        </p>
-                        <ul class="project-highlights">
-                            <li>ELT-based data warehouse architecture with DBT + BigQuery</li>
-                            <li>ML platform for lifecycle management with Kedro + MLflow</li>
-                            <li>Production model deployment to Kubernetes via MLServer</li>
-                            <li>Fraud detection system with batch and real-time pipelines</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-tag">Kedro</span>
-                            <span class="tech-tag">MLflow</span>
-                            <span class="tech-tag">MLServer</span>
-                            <span class="tech-tag">BigQuery</span>
-                            <span class="tech-tag">DBT</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link-label"><i class="fas fa-building"></i> Pathao Limited</span>
-                        </div>
-                    </div>
                 </div>
+                <div class="project-content">
+                    <h3 class="project-title">ML Platform &amp; Data Warehouse</h3>
+                    <p class="project-description">
+                        Co-architected Pathao's ELT-based data warehouse and ML lifecycle platform from the ground up —
+                        enabling collaboration between engineers, scientists, and analysts.
+                    </p>
+                    <ul class="project-highlights">
+                        <li>ELT-based data warehouse with DBT + BigQuery</li>
+                        <li>ML platform for lifecycle management with Kedro + MLflow</li>
+                        <li>Production model deployment to Kubernetes via MLServer</li>
+                        <li>Fraud detection system with batch and real-time pipelines</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kedro</span><span class="tech-tag">MLflow</span>
+                        <span class="tech-tag">MLServer</span><span class="tech-tag">BigQuery</span>
+                        <span class="tech-tag">DBT</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Python</span>
+                    </div>
+                    <p class="project-note"><i class="fas fa-building"></i>&nbsp; Pathao Limited</p>
+                </div>
+            </div>
 
-                <!-- Camera Model ID -->
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <!-- Camera Model ID -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon-wrap">
                         <i class="fas fa-microscope"></i>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Camera Model Identification</h3>
-                        <p class="project-description">
-                            Thesis research on digital image forensics using Convolutional Neural Networks.
-                            Developed a DenseNet-based approach for camera model identification and post-processing detection — published on arXiv.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">DenseNet</span>
-                            <span class="tech-tag">CNN</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Image Forensics</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://scholar.google.de/citations?user=4UmdvYcAAAAJ&hl=en" class="project-link" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i>
-                                Google Scholar
-                            </a>
-                        </div>
-                    </div>
                 </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-content">
-                <div class="education-item">
-                    <div class="education-header">
-                        <h3>BS in Electrical and Electronic Engineering</h3>
-                        <span class="education-year">2018</span>
+                <div class="project-content">
+                    <h3 class="project-title">Camera Model Identification</h3>
+                    <p class="project-description">
+                        Thesis research on digital image forensics using CNNs.
+                        Developed a DenseNet-based approach for camera model identification and post-processing detection — published on arXiv.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">DenseNet</span><span class="tech-tag">CNN</span>
+                        <span class="tech-tag">TensorFlow</span><span class="tech-tag">Python</span>
+                        <span class="tech-tag">Image Forensics</span>
                     </div>
-                    <div class="education-details">
+                    <p class="project-note">
+                        <a href="https://scholar.google.de/citations?user=4UmdvYcAAAAJ&hl=en" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt"></i>&nbsp; View on Google Scholar
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="section">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="education-content">
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <h3>BS in Electrical and Electronic Engineering</h3>
                         <p class="education-institution">Bangladesh University of Engineering &amp; Technology (BUET)</p>
                         <p class="education-major">Major: Communication &nbsp;|&nbsp; Minor: Electronics</p>
-                        <p class="education-gpa">GPA: 3.35 / 4.00</p>
+                    </div>
+                    <div class="education-meta">
+                        <span class="education-year">2018</span>
+                        <span class="education-gpa">GPA 3.35 / 4.00</span>
                     </div>
                 </div>
-                <div class="education-item">
-                    <div class="education-header">
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
                         <h3>Higher Secondary Certificate</h3>
-                        <span class="education-year">2013</span>
-                    </div>
-                    <div class="education-details">
                         <p class="education-institution">Ananda Mohan College, Mymensingh, Bangladesh</p>
-                        <p class="education-gpa">GPA: 5.00 / 5.00</p>
+                    </div>
+                    <div class="education-meta">
+                        <span class="education-year">2013</span>
+                        <span class="education-gpa">GPA 5.00 / 5.00</span>
                     </div>
                 </div>
-                <div class="education-item">
-                    <div class="education-header">
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
                         <h3>Secondary School Certificate</h3>
-                        <span class="education-year">2011</span>
-                    </div>
-                    <div class="education-details">
                         <p class="education-institution">Premier Ideal High School, Mymensingh, Bangladesh</p>
-                        <p class="education-gpa">GPA: 5.00 / 5.00</p>
+                    </div>
+                    <div class="education-meta">
+                        <span class="education-year">2011</span>
+                        <span class="education-gpa">GPA 5.00 / 5.00</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Research Section -->
-    <section id="research" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Research & Recognition</h2>
-            <div class="research-content">
-
-                <div class="research-item">
-                    <h3><i class="fas fa-flask"></i> Research Experience</h3>
-                    <ul class="research-list">
-                        <li>
-                            <strong>Camera Model Identification for Digital Image Forensics Using CNN</strong><br>
-                            Thesis research under Dr. Md. Kamrul Hasan, Professor, Dept. of EEE, BUET
-                        </li>
-                        <li>
-                            <strong>Lung Tumor Segmentation from CT Scan</strong><br>
-                            Research under Dr. Md. Kamrul Hasan, Professor, Dept. of EEE, BUET
-                        </li>
-                        <li>
-                            <strong>Vital-Sign Detection (Heart-rate, Respiratory-rate) from Noisy PPG Signals</strong><br>
-                            Research under Dr. Md. Kamrul Hasan, Professor, Dept. of EEE, BUET
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="research-item">
-                    <h3><i class="fas fa-book-open"></i> Publications</h3>
-                    <div class="publication-list">
-                        <div class="publication-item">
-                            <p><strong>Application of DenseNet in Camera Model Identification and Post-processing Detection</strong></p>
-                            <p>Uday Kamal, Abdul Muntakim Rafi, <strong>Rakibul Hoque</strong>, Sowmitra Das, Abid Abrar and Md. Kamrul Hasan</p>
-                            <p><em>arXiv:1809.00576 [eess], Sep. 2018</em></p>
-                        </div>
-                        <div class="publication-item">
-                            <p><strong>Lung Cancer Tumor Region Segmentation Using Recurrent 3D-DenseUNet</strong></p>
-                            <p>Uday Kamal, Abdul Muntakim Rafi, <strong>Rakibul Hoque</strong> and Md. Kamrul Hasan</p>
-                            <p><em>arXiv:1812.01951 [eess], Dec. 2018</em></p>
-                        </div>
+<!-- Research Section -->
+<section id="research" class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Research &amp; Recognition</h2>
+        <div class="research-content">
+            <div class="research-item">
+                <h3><i class="fas fa-flask"></i> Research Experience</h3>
+                <ul class="research-list">
+                    <li><strong>Camera Model Identification for Digital Image Forensics Using CNN</strong><br>
+                        Thesis research under Dr. Md. Kamrul Hasan, Professor, Dept. of EEE, BUET</li>
+                    <li><strong>Lung Tumor Segmentation from CT Scan</strong><br>
+                        Research under Dr. Md. Kamrul Hasan, Professor, Dept. of EEE, BUET</li>
+                    <li><strong>Vital-Sign Detection (Heart-rate, Respiratory-rate) from Noisy PPG Signals</strong><br>
+                        Research under Dr. Md. Kamrul Hasan, Professor, Dept. of EEE, BUET</li>
+                </ul>
+            </div>
+            <div class="research-item">
+                <h3><i class="fas fa-book-open"></i> Publications</h3>
+                <div class="publication-list">
+                    <div class="publication-item">
+                        <p><strong>Application of DenseNet in Camera Model Identification and Post-processing Detection</strong></p>
+                        <p>Uday Kamal, Abdul Muntakim Rafi, <strong>Rakibul Hoque</strong>, Sowmitra Das, Abid Abrar and Md. Kamrul Hasan</p>
+                        <p><em>arXiv:1809.00576 [eess], Sep. 2018</em></p>
+                    </div>
+                    <div class="publication-item">
+                        <p><strong>Lung Cancer Tumor Region Segmentation Using Recurrent 3D-DenseUNet</strong></p>
+                        <p>Uday Kamal, Abdul Muntakim Rafi, <strong>Rakibul Hoque</strong> and Md. Kamrul Hasan</p>
+                        <p><em>arXiv:1812.01951 [eess], Dec. 2018</em></p>
                     </div>
                 </div>
-
-                <div class="research-item">
-                    <h3><i class="fas fa-trophy"></i> Awards & Recognition</h3>
-                    <ul class="awards-list">
-                        <li>First Runner-Up, 2018 IEEE VIP Cup Competition (Team: Spectrum)</li>
-                        <li>Top 6 Finalist, Robi Datathon (2019 &amp; 2022)</li>
-                        <li>Regional Champion, Bangladesh Mathematical Olympiad — Higher Secondary Category, 2013</li>
-                        <li>Regional Champion, Bangladesh Mathematical Olympiad — Secondary School Category, 2011</li>
-                        <li>Junior Education Board Scholarship, 2009–2010</li>
-                        <li>Primary Education Board Scholarship, 2006–2008</li>
-                    </ul>
-                </div>
-
+            </div>
+            <div class="research-item">
+                <h3><i class="fas fa-trophy"></i> Awards &amp; Recognition</h3>
+                <ul class="awards-list">
+                    <li>First Runner-Up, 2018 IEEE VIP Cup Competition (Team: Spectrum)</li>
+                    <li>Top 6 Finalist, Robi Datathon (2019 &amp; 2022)</li>
+                    <li>Regional Champion, Bangladesh Mathematical Olympiad — Higher Secondary Category, 2013</li>
+                    <li>Regional Champion, Bangladesh Mathematical Olympiad — Secondary School Category, 2011</li>
+                    <li>Junior Education Board Scholarship, 2009–2010</li>
+                    <li>Primary Education Board Scholarship, 2006–2008</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always open to new opportunities, interesting projects, and conversations about data engineering and AI platforms.</p>
-
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:contact@rakibulhoque.com" style="color:var(--text-secondary);text-decoration:none;">contact@rakibulhoque.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/rakibul-hoque-37b66a13b/" target="_blank" rel="noopener" style="color:var(--text-secondary);text-decoration:none;">LinkedIn Profile</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/rakibulhoque" target="_blank" rel="noopener" style="color:var(--text-secondary);text-decoration:none;">GitHub Profile</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <a href="https://scholar.google.de/citations?user=4UmdvYcAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--text-secondary);text-decoration:none;">Google Scholar</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Dhaka, Bangladesh</span>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Your message..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i>
-                        Send Message
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/rakibul-hoque-37b66a13b/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/rakibulhoque" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:contact@rakibulhoque.com" class="social-link" aria-label="Email">
+<!-- Contact Section -->
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Let's Connect</h3>
+                <p>Open to new opportunities, interesting projects, and conversations about data engineering and AI platforms.</p>
+                <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://scholar.google.de/citations?user=4UmdvYcAAAAJ&hl=en" target="_blank" rel="noopener" class="social-link" aria-label="Google Scholar">
+                    <a href="mailto:contact@rakibulhoque.com">contact@rakibulhoque.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/rakibul-hoque-37b66a13b/" target="_blank" rel="noopener">LinkedIn Profile</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/rakibulhoque" target="_blank" rel="noopener">GitHub Profile</a>
+                </div>
+                <div class="contact-item">
                     <i class="fas fa-graduation-cap"></i>
-                </a>
+                    <a href="https://scholar.google.de/citations?user=4UmdvYcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Dhaka, Bangladesh</span>
+                </div>
             </div>
-            <p>&copy; 2026 Md. Rakibul Hoque. All rights reserved.</p>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // Loading screen
-        window.addEventListener('load', () => {
-            const loading = document.getElementById('loading');
-            setTimeout(() => loading.classList.add('hidden'), 800);
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/rakibul-hoque-37b66a13b/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/rakibulhoque" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:contact@rakibulhoque.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://scholar.google.de/citations?user=4UmdvYcAAAAJ&hl=en" target="_blank" rel="noopener" class="social-link" aria-label="Scholar"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Md. Rakibul Hoque &nbsp;·&nbsp; Crafted with care</p>
+    </div>
+</footer>
+
+<script>
+    // Loading
+    window.addEventListener('load', () => {
+        setTimeout(() => document.getElementById('loading').classList.add('hidden'), 700);
+    });
+
+    // Theme
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const saved = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', saved);
+    updateThemeIcon(saved);
+
+    themeToggle.addEventListener('click', () => {
+        const t = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', t);
+        localStorage.setItem('theme', t);
+        updateThemeIcon(t);
+    });
+
+    function updateThemeIcon(t) {
+        themeToggle.querySelector('i').className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    // Mobile menu
+    const menuBtn = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuBtn.querySelector('i').className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+    });
+    document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuBtn.querySelector('i').className = 'fas fa-bars';
+    }));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         });
+    });
 
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        const themeIcon = themeToggle.querySelector('i');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        body.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        const dark = body.getAttribute('data-theme') === 'dark';
+        navbar.style.boxShadow = window.scrollY > 40
+            ? '0 2px 20px rgba(44,26,14,0.12)'
+            : 'none';
+    });
 
-        themeToggle.addEventListener('click', () => {
-            const current = body.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            body.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            updateThemeIcon(next);
+    // Contact form
+    document.getElementById('contact-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const [name, email, subject, message] = ['name','email','subject','message'].map(k => fd.get(k));
+        window.location.href = `mailto:contact@rakibulhoque.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        const btn = e.target.querySelector('[type="submit"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        setTimeout(() => { btn.innerHTML = orig; e.target.reset(); }, 3000);
+    });
+
+    // Intersection Observer animations
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
         });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        function updateThemeIcon(theme) {
-            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    document.querySelectorAll('.skill-category, .project-card, .timeline-content, .education-item, .research-item, .stat-item').forEach(el => {
+        el.classList.add('animate-in');
+        observer.observe(el);
+    });
+
+    // Hero name typewriter (Caveat handwriting feel — slower, more deliberate)
+    const nameEl = document.getElementById('hero-name');
+    const nameText = 'Md. Rakibul Hoque';
+    let ni = 0;
+    const typeHero = () => {
+        if (ni < nameText.length) {
+            nameEl.textContent += nameText.charAt(ni++);
+            setTimeout(typeHero, ni < 4 ? 120 : 80);
         }
+    };
+    setTimeout(typeHero, 1000);
 
-        // Mobile menu
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
+    // Years of experience
+    function getYears() {
+        return Math.floor((new Date() - new Date('2019-12-01')) / (365.25*24*60*60*1000));
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const el = document.getElementById('years-experience');
+        if (el) el.textContent = getYears();
+    });
 
-        mobileMenuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = mobileMenuToggle.querySelector('i');
-            icon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
-        });
-
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
-            });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            const isDark = body.getAttribute('data-theme') === 'dark';
-            if (window.scrollY > 50) {
-                navbar.style.background = isDark ? 'rgba(17,24,39,0.98)' : 'rgba(255,255,255,0.98)';
-            } else {
-                navbar.style.background = isDark ? 'rgba(17,24,39,0.95)' : 'rgba(255,255,255,0.95)';
-            }
-        });
-
-        // Contact form
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const data = new FormData(e.target);
-            const name = data.get('name'), email = data.get('email');
-            const subject = data.get('subject'), message = data.get('message');
-            const mailtoLink = `mailto:contact@rakibulhoque.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            window.location.href = mailtoLink;
-            const btn = e.target.querySelector('button[type="submit"]');
-            const orig = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-            btn.style.background = 'var(--accent-color)';
-            setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; e.target.reset(); }, 3000);
-        });
-
-        // Intersection Observer animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.skill-category, .project-card, .timeline-content, .education-item, .research-item, .stat-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Typing effect for hero
-        const heroTitle = document.querySelector('.hero-content h1');
-        const titleText = heroTitle.textContent;
-        heroTitle.textContent = '';
-        let i = 0;
-        const typeWriter = () => {
-            if (i < titleText.length) {
-                heroTitle.textContent += titleText.charAt(i++);
-                setTimeout(typeWriter, 60);
-            }
+    // Animated stat counters
+    function countUp(el, target, suffix) {
+        const dur = 1400;
+        const start = Date.now();
+        const run = () => {
+            const p = Math.min((Date.now() - start) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            const v = Math.round(ease * target);
+            el.textContent = (v >= 1000 ? v.toLocaleString() : v) + (p === 1 ? suffix : '');
+            if (p < 1) requestAnimationFrame(run);
         };
-        setTimeout(typeWriter, 1200);
+        requestAnimationFrame(run);
+    }
 
-        // Years of experience
-        function getYearsExperience() {
-            const start = new Date('2019-12-01');
-            return Math.floor((new Date() - start) / (365.25 * 24 * 60 * 60 * 1000));
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const el = document.getElementById('years-experience');
-            if (el) el.textContent = getYearsExperience();
+    const statsObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const numEl = entry.target.querySelector('.stat-number');
+                const raw = numEl.textContent;
+                const suffix = raw.replace(/[\d,]/g, '');
+                const num = parseFloat(raw.replace(/[^\d.]/g, ''));
+                if (!isNaN(num)) countUp(numEl, num, suffix);
+                statsObs.unobserve(entry.target);
+            }
         });
-
-        // Stat counter animation
-        function animateCount(el, target, suffix) {
-            const isFloat = target % 1 !== 0;
-            const duration = 1500;
-            const start = Date.now();
-            const tick = () => {
-                const elapsed = Date.now() - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(eased * target);
-                el.textContent = current.toLocaleString() + (progress === 1 ? suffix : '');
-                if (progress < 1) requestAnimationFrame(tick);
-            };
-            tick();
-        }
-
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target.querySelector('.stat-number');
-                    const raw = el.textContent;
-                    const suffix = raw.replace(/[\d,]/g, '');
-                    const num = parseFloat(raw.replace(/[^0-9.]/g, ''));
-                    if (!isNaN(num)) animateCount(el, num, suffix);
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stat-item').forEach(el => statsObserver.observe(el));
-    </script>
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-item').forEach(el => statsObs.observe(el));
+</script>
 </body>
 </html>
