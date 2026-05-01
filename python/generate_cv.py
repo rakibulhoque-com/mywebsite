@@ -154,7 +154,7 @@ def build_cv(output_path):
     hdr = Table(
         [[
             [Paragraph('Md. Rakibul Hoque', NAME_STYLE),
-             Paragraph('Senior Data Engineer &amp; AI Platform Builder', TAGLINE_STYLE)],
+             Paragraph('Senior Data &amp; Platform Engineer &nbsp;·&nbsp; DataOps &nbsp;·&nbsp; DevSecOps &nbsp;·&nbsp; AI Automation', TAGLINE_STYLE)],
             [Paragraph(line, CONTACT_STYLE) for line in contact_lines],
         ]],
         colWidths=[BODY_W * 0.58, BODY_W * 0.42],
@@ -174,11 +174,11 @@ def build_cv(output_path):
     # ── Summary ──────────────────────────────────────────────────────────────
     story += [section_header('Professional Summary')]
     story.append(Paragraph(
-        'Senior Data Engineer with 6+ years of experience spanning ride-hailing, global fashion retail, '
-        'and EdTech — from real-time, event-driven pipelines processing millions of daily transactions '
-        'to cloud-native data warehouses, ML lifecycle platforms, and LLM-powered analytics products on GCP. '
-        'Experienced across the full engineering stack: infrastructure as code, analytics engineering at scale, '
-        'ML-Ops, and applied AI — consistently building systems that hold up in production.',
+        'Senior Data &amp; Platform Engineer with 6+ years delivering DataOps, DevSecOps, and AI-powered '
+        'automation across ride-hailing, global fashion retail, and EdTech. Designs and operates production '
+        'platforms end-to-end: cloud infrastructure as code, GitOps-driven data pipeline delivery, '
+        'security-first identity systems, and multi-agent AI tools that automate complex business processes. '
+        'Consistently ships systems that are secure by design, operated as code, and augmented by AI.',
         BODY_STYLE,
     ))
 
@@ -194,20 +194,16 @@ def build_cv(output_path):
         ROLE_STYLE,
     ))
     gstar = [
-        'Architected a <b>multi-layer BigQuery data warehouse</b> using Dataform — 1,700+ SQL models '
-        'across 10 business domains (Sales, Finance, Inventory, Marketing, Logistics, E-commerce, '
-        'Consumer, Product, Sustainability, and Omnichannel)',
-        'Designed and delivered a <b>production AI analytics assistant</b> (FastAPI + LangChain + '
-        'Google Gemini + Svelte) — multi-agent domain routing, prompt injection safeguards, and '
-        'full PostgreSQL audit trail; enables business users to query the data warehouse in plain English',
-        'Provisioned a <b>multi-project GCP data lake</b> across 4 isolated environments using modular '
-        'Terraform (100+ cloud resources); operated a production <b>GKE cluster</b> with Helm releases '
-        'for Airbyte, Superset, Keycloak, and Traefik via GitOps-driven Atlantis workflows',
-        'Administered the <b>SAP data replication stack</b> (SAP ECC, Data Intelligence, Datasphere, SLT) '
-        'for near-real-time ERP streaming alongside Salesforce CRM and Centric PLM data integrations',
-        'Delivered <b>54 outbound data feed models</b> across 7 external SaaS platforms and built a '
-        'centralised <b>identity platform</b> with Keycloak OIDC/OAuth2, Row-Level Security, '
-        'and GCP Workload Identity',
+        '<b>DataOps:</b> multi-layer BigQuery warehouse via Dataform — 1,700+ SQL models across 10 domains; '
+        'pipeline-as-code with automated model promotion across dev / UAT / prod',
+        '<b>AI agent pipeline:</b> production multi-agent analytics tool (FastAPI + LangChain + Gemini + Svelte) '
+        '— domain routing, prompt injection safeguards, full PostgreSQL audit trail; automates plain-English warehouse querying',
+        '<b>DevOps / GitOps:</b> 4-environment GCP platform via Atlantis + Terraform (100+ IaC resources, '
+        'peer-reviewed plan/apply gates); production GKE cluster with Helm services across all envs',
+        '<b>DataOps ingestion:</b> SAP replication stack (ECC, Data Intelligence, Datasphere, SLT) for '
+        'near-real-time ERP streaming + Salesforce CRM; 54 outbound feed models to 7 SaaS platforms',
+        '<b>DevSecOps:</b> Keycloak OIDC/OAuth2, OAuth2-Proxy forward auth, GCP Workload Identity, '
+        'Row-Level Security in Superset, 40+ prompt injection guards — all managed declaratively via Terraform',
     ]
     for b in gstar:
         story.append(bullet(b))
@@ -278,22 +274,23 @@ def build_cv(output_path):
     story += [section_header('Technical Skills')]
 
     skills = [
-        ('Cloud & Infrastructure',
-         'GCP, Terraform, Kubernetes (GKE), Helm, Docker, Atlantis, Traefik, Consul, Cloud Build, Cloud Composer'),
-        ('Data Engineering',
+        ('DevOps & Platform',
+         'GCP, Terraform, Kubernetes (GKE), Helm, Docker, Atlantis, GitOps, CI/CD Pipelines, '
+         'Cloud Build, Cloud Composer, Traefik, Consul'),
+        ('DataOps & Pipelines',
          'BigQuery, Dataform, Apache Airflow, Airbyte, dbt, Apache Beam, Pub/Sub, '
-         'SAP ECC, SAP Data Intelligence, SAP SLT, EDI, Salesforce CRM'),
+         'SAP ECC, SAP Data Intelligence, SAP SLT, Salesforce CRM'),
+        ('AI Agents & Automation',
+         'LangChain, Google Gemini, n8n, Temporal, Agentic Workflow Orchestration, '
+         'FastAPI, Prompt Engineering, Hexagonal Architecture, Kedro, MLflow, MLServer, Pandas'),
+        ('DevSecOps & Identity',
+         'Keycloak, OAuth2/OIDC, OAuth2-Proxy, GCP IAP, Workload Identity, '
+         'Row-Level Security, Prompt Injection Defence (40+ patterns), VPN (IPSec)'),
         ('Analytics Engineering',
          'SQL, Data Modeling, Dimensional Modeling, Incremental Loading, '
          'Partitioning & Clustering, Apache Superset, Grafana, InfluxDB'),
-        ('AI & Applied ML',
-         'LangChain, Google Gemini, FastAPI, Prompt Engineering, Hexagonal Architecture, '
-         'Kedro, MLflow, MLServer, TensorFlow, Scikit-learn, Pandas'),
-        ('Security & Identity',
-         'Keycloak, OAuth2/OIDC, OAuth2-Proxy, GCP IAP, Workload Identity, '
-         'Row-Level Security, Prompt Injection Defence (40+ patterns), VPN (IPSec)'),
         ('Languages & Frameworks',
-         'Python, SQL, JavaScript, TypeScript, Svelte, FastAPI, PostgreSQL, Redis, MSSQL'),
+         'Python, Go, SQL, JavaScript, TypeScript, Svelte, FastAPI, PostgreSQL, Redis, MSSQL'),
     ]
 
     skill_rows = [
@@ -371,6 +368,16 @@ def build_cv(output_path):
         story.append(Paragraph(f'&nbsp;&nbsp;&nbsp;&nbsp;{authors}. <i>{venue}.</i>', PUB_STYLE))
         if i < len(pubs):
             story.append(vsp(2))
+
+    # ── Personal Projects ────────────────────────────────────────────────────
+    story += [section_header('Personal Projects')]
+    story.append(exp_header('TroyERP', 'Personal Engineering Project', '2024 – Present'))
+    story.append(Paragraph(
+        '<i>SAP-inspired modular ERP</i> — 13-domain design (SD, MM, FI, CO, PP, QM, PM, EWM, HCM, CS, TR, LE, RE-FX); '
+        'FastAPI + async SQLAlchemy on PostgreSQL; Temporal for agentic Order-to-Cash / Procure-to-Pay orchestration.',
+        BODY_STYLE,
+    ))
+    story.append(tech('FastAPI · PostgreSQL · Redis · Temporal · Docker · Python'))
 
     # ── Awards ───────────────────────────────────────────────────────────────
     story += [section_header('Awards & Recognition')]
