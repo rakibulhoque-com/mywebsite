@@ -154,7 +154,7 @@ def build_cv(output_path):
     hdr = Table(
         [[
             [Paragraph('Md. Rakibul Hoque', NAME_STYLE),
-             Paragraph('Senior Data &amp; Platform Engineer &nbsp;·&nbsp; DataOps &nbsp;·&nbsp; DevSecOps &nbsp;·&nbsp; AI Automation', TAGLINE_STYLE)],
+             Paragraph('Senior Data &amp; Platform Engineer<br/><font size="9">DataOps &nbsp;·&nbsp; DevSecOps &nbsp;·&nbsp; AI Automation</font>', TAGLINE_STYLE)],
             [Paragraph(line, CONTACT_STYLE) for line in contact_lines],
         ]],
         colWidths=[BODY_W * 0.58, BODY_W * 0.42],
