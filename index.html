@@ -817,14 +817,37 @@
         });
     });
 
-    // Navbar scroll
+    // Navbar scroll shadow
     window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        const dark = body.getAttribute('data-theme') === 'dark';
-        navbar.style.boxShadow = window.scrollY > 40
+        document.querySelector('.navbar').style.boxShadow = window.scrollY > 40
             ? '0 2px 20px rgba(44,26,14,0.12)'
             : 'none';
     });
+
+    // Scroll spy — highlight the nav link matching the section currently on screen
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+    const sections = document.querySelectorAll('section[id]');
+
+    function setActive(id) {
+        navLinks.forEach(link => {
+            const isMatch = link.getAttribute('href') === '#' + id;
+            link.classList.toggle('active', isMatch);
+        });
+    }
+
+    const spyObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            // Only act on entries entering the detection zone (top 40% of viewport below nav)
+            if (entry.isIntersecting) setActive(entry.target.id);
+        });
+    }, {
+        // Top offset = navbar height so we don't count a section until it clears the bar.
+        // Bottom offset = -60% so only the section occupying the top 40% strip fires.
+        rootMargin: '-68px 0px -60% 0px',
+        threshold: 0
+    });
+
+    sections.forEach(s => spyObserver.observe(s));
 
     // Contact form
     document.getElementById('contact-form').addEventListener('submit', e => {

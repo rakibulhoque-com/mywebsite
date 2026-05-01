@@ -193,6 +193,25 @@ body::before {
 }
 .nav-link:hover::after { width: 100%; }
 
+/* Active section highlight — pencil amber underline */
+.nav-link.active {
+    color: var(--wood-deep);
+}
+.nav-link.active::after {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--wood-mid), var(--amber), var(--wood-mid));
+}
+/* Subtle pencil-marker highlight behind the active text */
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: -3px; right: -3px; top: -1px;
+    background: rgba(196,162,101,0.15);
+    border-radius: 1px 3px 2px 2px;
+    z-index: -1;
+}
+
 .theme-toggle {
     background: none;
     border: 1.5px solid var(--border-dark);
