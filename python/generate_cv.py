@@ -89,9 +89,11 @@ def section_header(title):
         HRFlowable(width='28', thickness=2.2, color=AMBER, spaceAfter=5, spaceBefore=1),
     ])
 
-def exp_header(company, location, date_range):
+def exp_header(company, location, date_range, url=None):
+    co_text = (f'<a href="{url}" color="#1B3358"><b>{company}</b></a>' if url
+               else f'<b>{company}</b>')
     t = Table(
-        [[Paragraph(f'<b>{company}</b>&nbsp; <font color="#555555" size="8.5">· {location}</font>', CO_STYLE),
+        [[Paragraph(f'{co_text}&nbsp; <font color="#555555" size="8.5">· {location}</font>', CO_STYLE),
           Paragraph(date_range, DATE_STYLE)]],
         colWidths=[BODY_W * 0.68, BODY_W * 0.32],
     )
@@ -154,7 +156,7 @@ def build_cv(output_path):
     hdr = Table(
         [[
             [Paragraph('Md. Rakibul Hoque', NAME_STYLE),
-             Paragraph('Senior Data &amp; Platform Engineer<br/><font size="9">DataOps &nbsp;·&nbsp; DevSecOps &nbsp;·&nbsp; AI Automation</font>', TAGLINE_STYLE)],
+             Paragraph('Lead Data &amp; Platform Engineer<br/><font size="9">Big Data &nbsp;·&nbsp; Fraud Detection &amp; Prevention &nbsp;·&nbsp; Real-time Systems &nbsp;·&nbsp; DevSecOps</font>', TAGLINE_STYLE)],
             [Paragraph(line, CONTACT_STYLE) for line in contact_lines],
         ]],
         colWidths=[BODY_W * 0.58, BODY_W * 0.42],
@@ -174,11 +176,27 @@ def build_cv(output_path):
     # ── Summary ──────────────────────────────────────────────────────────────
     story += [section_header('Professional Summary')]
     story.append(Paragraph(
-        'Senior Data &amp; Platform Engineer with 6+ years delivering DataOps, DevSecOps, and AI-powered '
-        'automation across ride-hailing, global fashion retail, and EdTech. Designs and operates production '
-        'platforms end-to-end: cloud infrastructure as code, GitOps-driven data pipeline delivery, '
-        'security-first identity systems, and multi-agent AI tools that automate complex business processes. '
-        'Consistently ships systems that are secure by design, operated as code, and augmented by AI.',
+        'Lead Data &amp; Platform Engineer with 7+ years of experience spanning big data engineering, '
+        'real-time fraud detection &amp; prevention, DevOps, DevSecOps, and AI agent automation across '
+        'high-throughput, mission-critical production environments in ride-hailing, global fashion retail, '
+        'and EdTech.',
+        BODY_STYLE,
+    ))
+    story.append(vsp(4))
+    story.append(Paragraph(
+        'Proven technical lead who has managed multinational engineering teams, designed and operated '
+        'large-scale data platforms from scratch, and delivered measurable financial impact — fraud '
+        'prevention systems that stopped tens of crores of Taka in losses, AI-powered analytics tools '
+        'that eliminated millions of dollars in vendor costs, and platform optimisations driving millions '
+        'in annual cloud savings.',
+        BODY_STYLE,
+    ))
+    story.append(vsp(4))
+    story.append(Paragraph(
+        'Brings strong organisational leadership and engineering discipline: GitOps-driven delivery via '
+        'Atlantis, infrastructure as code with Terraform, disciplined multi-environment governance, '
+        'comprehensive audit traceability, and a security-first design philosophy — consistently '
+        'shipping systems that are observable, adaptable, and built to withstand production pressure.',
         BODY_STYLE,
     ))
 
@@ -186,24 +204,48 @@ def build_cv(output_path):
     story += [section_header('Professional Experience')]
 
     # — G-Star Raw
-    story.append(exp_header('G-Star Raw', 'Amsterdam, Netherlands · Remote from Dhaka, Bangladesh', 'Mar 2023 – Present'))
+    story.append(exp_header('G-Star Raw', 'Amsterdam, Netherlands · Remote from Dhaka, Bangladesh', 'Mar 2023 – Present', url='https://www.g-star.com/en_nl'))
     story.append(Paragraph(
-        'Senior Data Engineer&nbsp; <font color="#AAAAAA">Jan 2024 – Present</font>'
+        'Senior Data Engineer (Lead Architect, 10-person multinational team)&nbsp; '
+        '<font color="#AAAAAA">Jan 2024 – Present</font>'
         '&nbsp;&nbsp;|&nbsp;&nbsp;'
         'Data Engineer&nbsp; <font color="#AAAAAA">Mar 2023 – Dec 2023</font>',
         ROLE_STYLE,
     ))
     gstar = [
-        '<b>DataOps:</b> multi-layer BigQuery warehouse via Dataform — 1,700+ SQL models across 10 domains; '
-        'pipeline-as-code with automated model promotion across dev / UAT / prod',
-        '<b>AI agent pipeline:</b> production multi-agent analytics tool (FastAPI + LangChain + Gemini + Svelte) '
-        '— domain routing, prompt injection safeguards, full PostgreSQL audit trail; automates plain-English warehouse querying',
-        '<b>DevOps / GitOps:</b> 4-environment GCP platform via Atlantis + Terraform (100+ IaC resources, '
-        'peer-reviewed plan/apply gates); production GKE cluster with Helm services across all envs',
-        '<b>DataOps ingestion:</b> SAP replication stack (ECC, Data Intelligence, Datasphere, SLT) for '
-        'near-real-time ERP streaming + Salesforce CRM; 54 outbound feed models to 7 SaaS platforms',
-        '<b>DevSecOps:</b> Keycloak OIDC/OAuth2, OAuth2-Proxy forward auth, GCP Workload Identity, '
-        'Row-Level Security in Superset, 40+ prompt injection guards — all managed declaratively via Terraform',
+        '<b>DataOps &amp; cost optimisation:</b> Architected a multi-layer BigQuery data warehouse via '
+        'Dataform — 1,700+ SQL models across 10 business domains; pipeline-as-code with automated model '
+        'promotion across dev / UAT / prod; query and pipeline optimisations delivered '
+        '<b>millions of dollars in annual GCP cost savings</b>',
+
+        '<b>AI analyst agent — vendor cost elimination:</b> Designed and delivered a production '
+        '<b>multi-agent AI analytics assistant</b> (FastAPI + LangChain + Google Gemini + Svelte) '
+        'replacing the need for expensive third-party BI and NLP query tools — '
+        '<b>saving millions of dollars in annual vendor licensing costs</b>; '
+        'multi-agent domain routing with <b>permission-based access control per data domain</b> '
+        '(Keycloak group-level scoping), prompt injection safeguards, and full PostgreSQL audit trail',
+
+        '<b>DevOps / GitOps &amp; self-hosted cost savings:</b> Established a 4-environment GCP platform '
+        'via Atlantis + Terraform (100+ IaC resources, peer-reviewed plan/apply gates); '
+        'self-hosted Airbyte, Apache Superset, Keycloak, and Traefik on GKE — '
+        'replacing paid SaaS equivalents and <b>saving significant recurring vendor licensing costs</b>; '
+        'production GKE cluster with Helm-managed releases across all environments',
+
+        '<b>Cross-system data integration:</b> Designed and operated unified data pipelines integrating '
+        '<b>POS systems, ERP (SAP ECC / Datasphere), Payment Systems (Adyen), Marketing Tools, '
+        'and Fraud Prevention (Forter)</b> into a single BigQuery data platform — '
+        'enabling end-to-end visibility across the entire retail and e-commerce data estate; '
+        '54 outbound feed models to 7 external SaaS platforms',
+
+        '<b>Fraud monitoring &amp; vendor management:</b> Real-time Adyen payment fraud prevention '
+        'in collaboration with <b>Forter</b>; led data &amp; analytics tool evaluation, '
+        'integration scoping, and SLA discussions with 3rd-party vendors; '
+        'SAP replication stack (ECC, Datasphere, SLT) + Salesforce CRM integration',
+
+        '<b>DevSecOps identity layer:</b> Security-first access platform built entirely as code — '
+        'Keycloak OIDC/OAuth2, OAuth2-Proxy forward auth, GCP Workload Identity, '
+        'Row-Level Security in Superset, and 40+ prompt injection guards; '
+        'all declaratively managed via Terraform across environments',
     ]
     for b in gstar:
         story.append(bullet(b))
@@ -215,20 +257,33 @@ def build_cv(output_path):
 
     story.append(thin_rule())
 
-    # — Buildnow
-    story.append(exp_header('Buildnow Inc.', 'Remote', 'Nov 2023 – Jan 2024'))
+    # — Aajil
+    story.append(exp_header('Aajil', 'Remote', 'Nov 2023 – Jan 2024', url='https://www.aajil.sa/en'))
     story.append(Paragraph('Data Engineering Consultant (Contract)', ROLE_STYLE))
     story.append(Paragraph(
-        'First architect of the entire data and ML infrastructure from scratch on GCP — '
-        'designed the data warehouse, orchestration layer, ELT pipelines, and ML-Ops foundation.',
+        'Brought in as the sole data architect to design and build the entire data and ML infrastructure '
+        'from a blank slate on GCP — no prior data platform existed.',
         BODY_STYLE,
     ))
-    story.append(tech('GCP · Terraform · MLflow · Airbyte · dbt · Airflow · Python'))
+    aajil = [
+        'Designed the full <b>data warehouse architecture</b> on BigQuery — schema design, dataset '
+        'organisation, incremental loading strategy, and data modeling standards using dbt',
+        'Built the <b>ELT ingestion layer</b> with Airbyte, connecting operational data sources to '
+        'BigQuery; configured orchestration workflows with Apache Airflow for pipeline scheduling and '
+        'dependency management',
+        'Established the <b>ML-Ops foundation</b> with MLflow for experiment tracking, model registry, '
+        'and versioning — enabling the data science team to manage the full model lifecycle',
+        'Provisioned all <b>cloud infrastructure via Terraform</b> — VPCs, service accounts, GCS buckets, '
+        'BigQuery datasets, IAM policies, and Composer environments',
+    ]
+    for b in aajil:
+        story.append(bullet(b))
+    story.append(tech('GCP · Terraform · BigQuery · dbt · Airbyte · Airflow · MLflow · Python'))
 
     story.append(thin_rule())
 
     # — Pathao
-    story.append(exp_header('Pathao Limited', 'Dhaka, Bangladesh', 'Dec 2019 – Nov 2023'))
+    story.append(exp_header('Pathao Limited', 'Dhaka, Bangladesh', 'Dec 2019 – Nov 2023', url='https://pathao.com/bn/'))
     story.append(Paragraph(
         'Data Engineer II – Contract&nbsp; <font color="#AAAAAA">Apr 2023 – Nov 2023</font>'
         '&nbsp; | &nbsp;'
@@ -238,18 +293,35 @@ def build_cv(output_path):
         ROLE_STYLE,
     ))
     pathao = [
-        'Co-architected the <b>ELT-based data warehouse platform</b> enabling seamless collaboration '
-        'between Data Engineers, Data Scientists, and Analysts without data silos',
-        'Co-architected the <b>ML platform</b> for production ML lifecycle management — model training, '
-        'experiment tracking with MLflow, and deployment to Kubernetes via MLServer',
-        'Built a <b>fraud detection knowledge-base</b> with batch and real-time pipelines for suspicious '
-        'activity detection and automated prevention across ride-sharing and payments',
-        'Engineered a <b>GPS distance calculator microservice</b> using Apache Beam with signal '
-        'noise cancellation and confidence scoring from raw GPS pings',
+        'Designed and led the <b>real-time fraud detection &amp; prevention platform</b> — '
+        'multi-stage batch and streaming pipelines for suspicious activity classification using '
+        'rule-based engines and ML models, automated transaction blocking mechanisms, and real-time '
+        'alert dispatch across ride-sharing, food delivery, and payment verticals; '
+        'processed millions of daily transaction events; '
+        '<b>platform prevented tens of crores of Taka in fraudulent transaction losses</b>',
+
+        'Led co-architecture of the <b>big data ELT platform</b> on GCP + BigQuery — ingesting data '
+        'from multiple operational systems (ride, food, fintech) into a centralised data warehouse; '
+        'established data modeling standards, pipeline governance practices, and observability tooling '
+        'that enabled silo-free collaboration between Data Engineers, Data Scientists, and Analysts at scale',
+
+        'Co-architected the <b>production ML lifecycle platform</b> from scratch — Kedro for '
+        'reproducible, governed ML pipelines; MLflow for experiment tracking, model registry, and '
+        'versioning; MLServer for low-latency model serving on Kubernetes; enabled the data science '
+        'team to move efficiently from experimentation to production deployment',
+
+        'Engineered a <b>high-throughput real-time GPS telemetry microservice</b> using Apache Beam '
+        '— noise cancellation algorithms for filtering GPS signal drift, confidence scoring from raw '
+        'ping data, and accurate distance calculation for millions of live ride events per day; '
+        'critical to both fare calculation accuracy and ETA estimation',
+
         'Built a <b>personalised food recommendation engine</b> using item-item similarity, '
-        'user-user similarity, and doc2vec NLP methods on the Pathao Food platform',
-        'Developed an <b>ETA correction system</b> incorporating peak/off-peak and '
-        'weekday/weekend traffic patterns into the existing ETA model',
+        'user-user similarity, and doc2vec NLP embeddings on the Pathao Food platform — '
+        'improving item discovery and order conversion for thousands of daily active users',
+
+        'Developed an <b>ETA correction system</b> incorporating historical peak/off-peak and '
+        'weekday/weekend traffic patterns into the baseline ETA model — improving delivery time '
+        'prediction accuracy across both ride-sharing and food delivery services',
     ]
     for b in pathao:
         story.append(bullet(b))
@@ -261,14 +333,24 @@ def build_cv(output_path):
     story.append(thin_rule())
 
     # — 10MinuteSchool
-    story.append(exp_header('10MinuteSchool', 'Dhaka, Bangladesh', 'Jan 2022 – Oct 2022'))
+    story.append(exp_header('10MinuteSchool', 'Dhaka, Bangladesh', 'Jan 2022 – Oct 2022', url='https://10minuteschool.com/'))
     story.append(Paragraph('Data Engineering Consultant', ROLE_STYLE))
     story.append(Paragraph(
-        'Established the base ELT architecture for Bangladesh\'s leading EdTech platform, '
-        'building a production data warehouse for the BI and analytics team\'s reporting dashboards.',
+        'Engaged to establish the foundational data infrastructure for Bangladesh\'s leading EdTech '
+        'platform serving over 10 million students — no data engineering layer existed prior to this engagement.',
         BODY_STYLE,
     ))
-    story.append(tech('Airbyte · BigQuery · GCP'))
+    tms = [
+        'Designed and implemented the <b>ELT ingestion layer</b> using Airbyte, connecting operational '
+        'platforms (LMS, mobile app, CRM) to BigQuery for centralised analytics',
+        'Built the <b>BigQuery data warehouse schema</b> for learner behaviour, content performance, '
+        'and subscription analytics — the primary data source for all BI reporting',
+        'Delivered <b>production-ready reporting dashboards</b> for the BI and analytics team, '
+        'enabling data-driven decisions on course quality, learner engagement, and retention',
+    ]
+    for b in tms:
+        story.append(bullet(b))
+    story.append(tech('Airbyte · BigQuery · GCP · SQL'))
 
     # ── Technical Skills ─────────────────────────────────────────────────────
     story += [section_header('Technical Skills')]
@@ -277,12 +359,14 @@ def build_cv(output_path):
         ('DevOps & Platform',
          'GCP, Terraform, Kubernetes (GKE), Helm, Docker, Atlantis, GitOps, CI/CD Pipelines, '
          'Cloud Build, Cloud Composer, Traefik, Consul'),
-        ('DataOps & Pipelines',
-         'BigQuery, Dataform, Apache Airflow, Airbyte, dbt, Apache Beam, Pub/Sub, '
+        ('Big Data & DataOps',
+         'BigQuery, Apache Beam, Pub/Sub, Dataform, Apache Airflow, Airbyte, dbt, '
+         'Real-time Stream Processing, Batch & Micro-batch Pipelines, '
          'SAP ECC, SAP Data Intelligence, SAP SLT, Salesforce CRM'),
-        ('AI Agents & Automation',
-         'LangChain, Google Gemini, n8n, Temporal, Agentic Workflow Orchestration, '
-         'FastAPI, Prompt Engineering, Hexagonal Architecture, Kedro, MLflow, MLServer, Pandas'),
+        ('AI, ML & Fraud Systems',
+         'Fraud Detection & Prevention, Anomaly Detection, Real-time Alert Pipelines, '
+         'LangChain, Google Gemini, n8n, Temporal, Agentic Automation, '
+         'FastAPI, Kedro, MLflow, MLServer, Scikit-learn, Pandas'),
         ('DevSecOps & Identity',
          'Keycloak, OAuth2/OIDC, OAuth2-Proxy, GCP IAP, Workload Identity, '
          'Row-Level Security, Prompt Injection Defence (40+ patterns), VPN (IPSec)'),
