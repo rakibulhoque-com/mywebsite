@@ -6,6 +6,8 @@ Requires: pip install reportlab
 """
 
 import os
+from io import BytesIO
+from PIL import Image as PILImage
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import cm, mm
 from reportlab.lib.colors import HexColor, white, black
@@ -13,7 +15,7 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER, TA_JUSTIFY
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, HRFlowable,
-    Table, TableStyle, KeepTogether, PageBreak,
+    Table, TableStyle, KeepTogether, PageBreak, Image,
 )
 from reportlab.platypus.flowables import BalancedColumns
 
@@ -50,7 +52,8 @@ def S(name='body', **kw):
 
 NAME_STYLE    = S('name',    fontName='Helvetica-Bold', fontSize=24,  textColor=NAVY,     leading=28)
 TAGLINE_STYLE = S('tagline', fontName='Helvetica',      fontSize=10,  textColor=BLUE,     leading=13, spaceAfter=1)
-CONTACT_STYLE = S('contact', fontName='Helvetica',      fontSize=8,   textColor=MIDGRAY,  leading=11, alignment=TA_RIGHT)
+CONTACT_STYLE    = S('contact',   fontName='Helvetica', fontSize=8,   textColor=MIDGRAY, leading=11, alignment=TA_RIGHT)
+CONTACT_STYLE_SM = S('contactsm', fontName='Helvetica', fontSize=6.8, textColor=MIDGRAY, leading=10, alignment=TA_RIGHT)
 
 SEC_STYLE     = S('sec',     fontName='Helvetica-Bold', fontSize=9,   textColor=NAVY,     leading=11,
                   spaceBefore=0, spaceAfter=0, textTransform='uppercase', letterSpacing=0.8)
@@ -115,6 +118,14 @@ def tech(text):
 def thin_rule():
     return HRFlowable(width='100%', thickness=0.4, color=RULE_GR, spaceBefore=3, spaceAfter=0)
 
+def load_photo(path, width, height):
+    """Load image (handles RGBA) and return a reportlab Image at given size."""
+    pil_img = PILImage.open(path).convert('RGB')
+    buf = BytesIO()
+    pil_img.save(buf, format='JPEG', quality=92)
+    buf.seek(0)
+    return Image(buf, width=width, height=height)
+
 
 # ── Page template with footer ────────────────────────────────────────────────
 def make_footer(canvas, doc):
@@ -149,24 +160,55 @@ def build_cv(output_path):
     contact_lines = [
         '+880 1672 868711',
         'mohammadrhoque@gmail.com',
-        'linkedin.com/in/rakibul-hoque-37b66a13b',
         'profile.rakibulhoque.com',
+        'linkedin.com/in/rakibul-hoque-37b66a13b',
+        'scholar.google.com/citations?user=4UmdvYcAAAAJ',
         'Dhaka, Bangladesh',
     ]
+
+    photo_h = 3.0 * cm                        # passport height
+    photo_w = photo_h * (912 / 1170)          # ~2.34 cm, preserves aspect ratio
+    col_name    = BODY_W * 0.45
+    col_contact = BODY_W - col_name - photo_w  # remaining width keeps all contact lines on one line
+
+    photo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                              '..', 'assets', 'rakibul_enhanced.png')
+    photo_img = load_photo(os.path.normpath(photo_path), photo_w, photo_h)
+
+    # Wrap photo in a 1-cell table so we can draw a border without any padding
+    # that would make the Image overflow its cell.
+    photo_frame = Table([[photo_img]],
+                        colWidths=[photo_w], rowHeights=[photo_h])
+    photo_frame.setStyle(TableStyle([
+        ('BOX',           (0, 0), (0, 0), 0.5, LIGHTGRAY),
+        ('TOPPADDING',    (0, 0), (0, 0), 0),
+        ('BOTTOMPADDING', (0, 0), (0, 0), 0),
+        ('LEFTPADDING',   (0, 0), (0, 0), 0),
+        ('RIGHTPADDING',  (0, 0), (0, 0), 0),
+    ]))
+
     hdr = Table(
         [[
             [Paragraph('Md. Rakibul Hoque', NAME_STYLE),
-             Paragraph('Lead Data &amp; Platform Engineer<br/><font size="9">Big Data &nbsp;·&nbsp; Fraud Detection &amp; Prevention &nbsp;·&nbsp; Real-time Systems &nbsp;·&nbsp; DevSecOps</font>', TAGLINE_STYLE)],
+             Paragraph(
+                 'Lead Data &amp; Platform Engineer<br/>'
+                 '<font size="9">Big Data &nbsp;·&nbsp; Fraud Detection &amp; Prevention<br/>'
+                 'Real-time Systems &nbsp;·&nbsp; DevSecOps</font>',
+                 TAGLINE_STYLE)],
             [Paragraph(line, CONTACT_STYLE) for line in contact_lines],
+            photo_frame,
         ]],
-        colWidths=[BODY_W * 0.58, BODY_W * 0.42],
+        colWidths=[col_name, col_contact, photo_w],
+        # No rowHeights — row height is driven naturally by the tallest cell (the photo)
     )
     hdr.setStyle(TableStyle([
-        ('VALIGN', (0, 0), (-1, -1), 'BOTTOM'),
+        ('VALIGN',       (0, 0), (2, 0), 'TOP'),
         ('LEFTPADDING',  (0, 0), (-1, -1), 0),
         ('RIGHTPADDING', (0, 0), (-1, -1), 0),
         ('TOPPADDING',   (0, 0), (-1, -1), 0),
-        ('BOTTOMPADDING',(0, 0), (-1, -1), 4),
+        ('BOTTOMPADDING',(0, 0), (-1, -1), 0),
+        ('TOPPADDING',   (1, 0), (1, 0), 5),   # slight offset so phone doesn't sit flush at top
+        ('RIGHTPADDING', (1, 0), (1, 0), 4),   # gap between contact and photo
     ]))
     story.append(hdr)
     story.append(HRFlowable(width='100%', thickness=1.8, color=NAVY, spaceBefore=2, spaceAfter=2))
@@ -176,27 +218,13 @@ def build_cv(output_path):
     # ── Summary ──────────────────────────────────────────────────────────────
     story += [section_header('Professional Summary')]
     story.append(Paragraph(
-        'Lead Data &amp; Platform Engineer with 7+ years of experience spanning big data engineering, '
-        'real-time fraud detection &amp; prevention, DevOps, DevSecOps, and AI agent automation across '
-        'high-throughput, mission-critical production environments in ride-hailing, global fashion retail, '
-        'and EdTech.',
-        BODY_STYLE,
-    ))
-    story.append(vsp(4))
-    story.append(Paragraph(
-        'Proven technical lead who has managed multinational engineering teams, designed and operated '
-        'large-scale data platforms from scratch, and delivered measurable financial impact — fraud '
-        'prevention systems that stopped tens of crores of Taka in losses, AI-powered analytics tools '
-        'that eliminated millions of dollars in vendor costs, and platform optimisations driving millions '
-        'in annual cloud savings.',
-        BODY_STYLE,
-    ))
-    story.append(vsp(4))
-    story.append(Paragraph(
-        'Brings strong organisational leadership and engineering discipline: GitOps-driven delivery via '
-        'Atlantis, infrastructure as code with Terraform, disciplined multi-environment governance, '
-        'comprehensive audit traceability, and a security-first design philosophy — consistently '
-        'shipping systems that are observable, adaptable, and built to withstand production pressure.',
+        'Lead Data &amp; Platform Engineer with 7+ years spanning big data engineering, real-time fraud '
+        'detection &amp; prevention, DevSecOps, and AI agent automation across ride-hailing, global fashion '
+        'retail, and EdTech. Technical lead of a 10-person multinational team with proven financial impact — '
+        'fraud systems preventing <b>tens of crores of Taka</b> in losses, AI analytics tools saving '
+        '<b>millions in vendor costs</b>, and platform optimisations delivering <b>millions in annual GCP '
+        'savings</b>. Strong engineering discipline: GitOps/Atlantis, Terraform IaC, multi-environment '
+        'governance, and security-first design.',
         BODY_STYLE,
     ))
 
@@ -225,34 +253,24 @@ def build_cv(output_path):
         'multi-agent domain routing with <b>permission-based access control per data domain</b> '
         '(Keycloak group-level scoping), prompt injection safeguards, and full PostgreSQL audit trail',
 
-        '<b>DevOps / GitOps &amp; self-hosted cost savings:</b> Established a 4-environment GCP platform '
-        'via Atlantis + Terraform (100+ IaC resources, peer-reviewed plan/apply gates); '
-        'self-hosted Airbyte, Apache Superset, Keycloak, and Traefik on GKE — '
-        'replacing paid SaaS equivalents and <b>saving significant recurring vendor licensing costs</b>; '
-        'production GKE cluster with Helm-managed releases across all environments',
+        '<b>DevOps / GitOps &amp; self-hosted:</b> 4-environment GCP platform via Atlantis + Terraform '
+        '(100+ IaC resources, peer-reviewed plan/apply gates); self-hosted Airbyte, Superset, Keycloak, '
+        'Traefik on GKE — replacing paid SaaS; production GKE cluster with Helm-managed releases',
 
-        '<b>Cross-system data integration:</b> Designed and operated unified data pipelines integrating '
-        '<b>POS systems, ERP (SAP ECC / Datasphere), Payment Systems (Adyen), Marketing Tools, '
-        'and Fraud Prevention (Forter)</b> into a single BigQuery data platform — '
-        'enabling end-to-end visibility across the entire retail and e-commerce data estate; '
-        '54 outbound feed models to 7 external SaaS platforms',
+        '<b>Cross-system integration &amp; fraud prevention:</b> Unified pipelines across '
+        '<b>POS, ERP (SAP ECC/Datasphere), Payments (Adyen), Marketing, and Fraud (Forter)</b>; '
+        'real-time Adyen fraud prevention with Forter; vendor evaluation &amp; SLA discussions; '
+        'SAP replication (ECC, SLT) + Salesforce CRM; 54 outbound feeds to 7 SaaS platforms',
 
-        '<b>Fraud monitoring &amp; vendor management:</b> Real-time Adyen payment fraud prevention '
-        'in collaboration with <b>Forter</b>; led data &amp; analytics tool evaluation, '
-        'integration scoping, and SLA discussions with 3rd-party vendors; '
-        'SAP replication stack (ECC, Datasphere, SLT) + Salesforce CRM integration',
-
-        '<b>DevSecOps identity layer:</b> Security-first access platform built entirely as code — '
-        'Keycloak OIDC/OAuth2, OAuth2-Proxy forward auth, GCP Workload Identity, '
-        'Row-Level Security in Superset, and 40+ prompt injection guards; '
-        'all declaratively managed via Terraform across environments',
+        '<b>DevSecOps identity layer:</b> Security-first access platform as code — Keycloak OIDC/OAuth2, '
+        'OAuth2-Proxy, GCP Workload Identity, Row-Level Security, 40+ prompt injection guards; '
+        'declaratively managed via Terraform across all environments',
     ]
     for b in gstar:
         story.append(bullet(b))
     story.append(tech(
-        'GCP · Terraform · Kubernetes (GKE) · Helm · BigQuery · Dataform · Cloud Composer (Airflow) · '
-        'Airbyte · Apache Superset · FastAPI · LangChain · Google Gemini · Svelte · PostgreSQL · '
-        'Keycloak · Traefik · Consul · SAP ECC · SAP Data Intelligence · SAP SLT · Pub/Sub · Python'
+        'GCP · Terraform · Kubernetes (GKE) · Helm · BigQuery · Dataform · Airbyte · '
+        'FastAPI · LangChain · Google Gemini · Keycloak · SAP ECC · SAP SLT · Pub/Sub · Python'
     ))
 
     story.append(thin_rule())
@@ -261,23 +279,11 @@ def build_cv(output_path):
     story.append(exp_header('Aajil', 'Remote', 'Nov 2023 – Jan 2024', url='https://www.aajil.sa/en'))
     story.append(Paragraph('Data Engineering Consultant (Contract)', ROLE_STYLE))
     story.append(Paragraph(
-        'Brought in as the sole data architect to design and build the entire data and ML infrastructure '
-        'from a blank slate on GCP — no prior data platform existed.',
+        'Sole data architect — designed and built the entire GCP data &amp; ML platform from scratch: '
+        'BigQuery warehouse (dbt), Airbyte ELT ingestion, Airflow orchestration, MLflow ML-Ops foundation, '
+        'and all cloud infrastructure via Terraform.',
         BODY_STYLE,
     ))
-    aajil = [
-        'Designed the full <b>data warehouse architecture</b> on BigQuery — schema design, dataset '
-        'organisation, incremental loading strategy, and data modeling standards using dbt',
-        'Built the <b>ELT ingestion layer</b> with Airbyte, connecting operational data sources to '
-        'BigQuery; configured orchestration workflows with Apache Airflow for pipeline scheduling and '
-        'dependency management',
-        'Established the <b>ML-Ops foundation</b> with MLflow for experiment tracking, model registry, '
-        'and versioning — enabling the data science team to manage the full model lifecycle',
-        'Provisioned all <b>cloud infrastructure via Terraform</b> — VPCs, service accounts, GCS buckets, '
-        'BigQuery datasets, IAM policies, and Composer environments',
-    ]
-    for b in aajil:
-        story.append(bullet(b))
     story.append(tech('GCP · Terraform · BigQuery · dbt · Airbyte · Airflow · MLflow · Python'))
 
     story.append(thin_rule())
@@ -294,40 +300,25 @@ def build_cv(output_path):
     ))
     pathao = [
         'Designed and led the <b>real-time fraud detection &amp; prevention platform</b> — '
-        'multi-stage batch and streaming pipelines for suspicious activity classification using '
-        'rule-based engines and ML models, automated transaction blocking mechanisms, and real-time '
-        'alert dispatch across ride-sharing, food delivery, and payment verticals; '
-        'processed millions of daily transaction events; '
-        '<b>platform prevented tens of crores of Taka in fraudulent transaction losses</b>',
+        'multi-stage batch &amp; streaming pipelines, rule-based engines + ML models, automated '
+        'transaction blocking, and real-time alert dispatch across ride-sharing, food, and payments; '
+        'processed millions of daily events; '
+        '<b>prevented tens of crores of Taka in fraudulent transaction losses</b>',
 
-        'Led co-architecture of the <b>big data ELT platform</b> on GCP + BigQuery — ingesting data '
-        'from multiple operational systems (ride, food, fintech) into a centralised data warehouse; '
-        'established data modeling standards, pipeline governance practices, and observability tooling '
-        'that enabled silo-free collaboration between Data Engineers, Data Scientists, and Analysts at scale',
+        'Led co-architecture of the <b>big data ELT platform</b> (GCP + BigQuery) and the '
+        '<b>ML lifecycle platform</b> from scratch — Kedro for reproducible pipelines, MLflow for '
+        'experiment tracking &amp; model registry, MLServer for low-latency Kubernetes serving; '
+        'governance and observability enabling silo-free collaboration at scale',
 
-        'Co-architected the <b>production ML lifecycle platform</b> from scratch — Kedro for '
-        'reproducible, governed ML pipelines; MLflow for experiment tracking, model registry, and '
-        'versioning; MLServer for low-latency model serving on Kubernetes; enabled the data science '
-        'team to move efficiently from experimentation to production deployment',
-
-        'Engineered a <b>high-throughput real-time GPS telemetry microservice</b> using Apache Beam '
-        '— noise cancellation algorithms for filtering GPS signal drift, confidence scoring from raw '
-        'ping data, and accurate distance calculation for millions of live ride events per day; '
-        'critical to both fare calculation accuracy and ETA estimation',
-
-        'Built a <b>personalised food recommendation engine</b> using item-item similarity, '
-        'user-user similarity, and doc2vec NLP embeddings on the Pathao Food platform — '
-        'improving item discovery and order conversion for thousands of daily active users',
-
-        'Developed an <b>ETA correction system</b> incorporating historical peak/off-peak and '
-        'weekday/weekend traffic patterns into the baseline ETA model — improving delivery time '
-        'prediction accuracy across both ride-sharing and food delivery services',
+        'Engineered a <b>real-time GPS telemetry microservice</b> (Apache Beam) with noise '
+        'cancellation and confidence scoring for millions of daily ride events; built a '
+        '<b>personalised food recommendation engine</b> (doc2vec + item/user similarity) and an '
+        '<b>ETA correction system</b> incorporating peak/off-peak traffic patterns',
     ]
     for b in pathao:
         story.append(bullet(b))
     story.append(tech(
-        'GCP · BigQuery · dbt · Airflow · Kedro · MLflow · MLServer · Kubernetes · '
-        'Apache Beam · Terraform · InfluxDB · Grafana · Python'
+        'GCP · BigQuery · dbt · Airflow · Kedro · MLflow · MLServer · Apache Beam · Kubernetes · Python'
     ))
 
     story.append(thin_rule())
@@ -336,20 +327,11 @@ def build_cv(output_path):
     story.append(exp_header('10MinuteSchool', 'Dhaka, Bangladesh', 'Jan 2022 – Oct 2022', url='https://10minuteschool.com/'))
     story.append(Paragraph('Data Engineering Consultant', ROLE_STYLE))
     story.append(Paragraph(
-        'Engaged to establish the foundational data infrastructure for Bangladesh\'s leading EdTech '
-        'platform serving over 10 million students — no data engineering layer existed prior to this engagement.',
+        'Established the foundational ELT architecture (Airbyte → BigQuery) for Bangladesh\'s leading '
+        'EdTech platform serving 10M+ students — data warehouse schema, pipeline orchestration, and '
+        'production reporting dashboards for the BI and analytics team.',
         BODY_STYLE,
     ))
-    tms = [
-        'Designed and implemented the <b>ELT ingestion layer</b> using Airbyte, connecting operational '
-        'platforms (LMS, mobile app, CRM) to BigQuery for centralised analytics',
-        'Built the <b>BigQuery data warehouse schema</b> for learner behaviour, content performance, '
-        'and subscription analytics — the primary data source for all BI reporting',
-        'Delivered <b>production-ready reporting dashboards</b> for the BI and analytics team, '
-        'enabling data-driven decisions on course quality, learner engagement, and retention',
-    ]
-    for b in tms:
-        story.append(bullet(b))
     story.append(tech('Airbyte · BigQuery · GCP · SQL'))
 
     # ── Technical Skills ─────────────────────────────────────────────────────
@@ -452,16 +434,6 @@ def build_cv(output_path):
         story.append(Paragraph(f'&nbsp;&nbsp;&nbsp;&nbsp;{authors}. <i>{venue}.</i>', PUB_STYLE))
         if i < len(pubs):
             story.append(vsp(2))
-
-    # ── Personal Projects ────────────────────────────────────────────────────
-    story += [section_header('Personal Projects')]
-    story.append(exp_header('TroyERP', 'Personal Engineering Project', '2024 – Present'))
-    story.append(Paragraph(
-        '<i>SAP-inspired modular ERP</i> — 13-domain design (SD, MM, FI, CO, PP, QM, PM, EWM, HCM, CS, TR, LE, RE-FX); '
-        'FastAPI + async SQLAlchemy on PostgreSQL; Temporal for agentic Order-to-Cash / Procure-to-Pay orchestration.',
-        BODY_STYLE,
-    ))
-    story.append(tech('FastAPI · PostgreSQL · Redis · Temporal · Docker · Python'))
 
     # ── Awards ───────────────────────────────────────────────────────────────
     story += [section_header('Awards & Recognition')]
